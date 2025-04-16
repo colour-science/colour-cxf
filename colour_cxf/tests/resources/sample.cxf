@@ -17,6 +17,7 @@
 						<cc:B>0.3338588</cc:B>
 					</cc:ColorCIELab>
 					<cc:ColorSRGB ColorSpecification="CS1">
+
 						<cc:R>0</cc:R>
 						<cc:G>0</cc:G>
 						<cc:B>0</cc:B>
@@ -2324,8 +2325,8 @@
 					<cc:MeasurementType>Spectrum_Reflectance</cc:MeasurementType>
 					<cc:GeometryChoice>
 						<cc:SingleAngle>
-							<cc:SingleAngleConfiguration>Annular</cc:SingleAngleConfiguration>
-							<cc:IlluminationAngle>45</cc:IlluminationAngle>
+                                <cc:SingleAngleConfiguration>Annular</cc:SingleAngleConfiguration>
+							<cc:IlluminationAngle>45.0</cc:IlluminationAngle>
 							<cc:MeasurementAngle>0.0</cc:MeasurementAngle>
 						</cc:SingleAngle>
 					</cc:GeometryChoice>

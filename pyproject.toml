@@ -47,6 +47,7 @@ dependencies = [
     "typing-extensions>=4,<5",
     "pydantic-xml>=2.14.2",
     "lxml-asserts>=0.1.2",
+    "xsdata[cli]>=25.4",
 ]
 
 [project.optional-dependencies]

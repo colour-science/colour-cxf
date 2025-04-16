@@ -548,3 +548,18 @@ def sha256(ctx: Context) -> None:
     message_box('Computing "sha256"...')
     with ctx.cd("dist"):
         ctx.run(f"openssl sha256 {PYPI_ARCHIVE_NAME}-*.tar.gz")
+
+
+@task
+def generate_code(c, target):
+    c.run(f"xsdata generate "
+          f"--package colour_cxf.generated "
+          f"--include-header "
+          f"--structure-style namespace-clusters "
+          f"--docstring-style NumPy "
+          f"--postponed-annotations "
+          f"--union-type "
+          f"--wrapper-fields "
+          f"--unnest-classes "
+          f"--compound-fields "
+          f"{target}")
