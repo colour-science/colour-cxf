@@ -26,8 +26,7 @@ keywords = [
     "colourspace",
     "colourspaces",
     "python",
-    "CLF",
-    "common lut format"
+    "CxF",
 ]
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -43,11 +42,7 @@ classifiers = [
 ]
 
 dependencies = [
-    "numpy>=1.24,<3",
     "typing-extensions>=4,<5",
-    "pydantic-xml>=2.14.2",
-    "lxml-asserts>=0.1.2",
-    "xsdata[cli]>=25.4",
 ]
 
 [project.optional-dependencies]
@@ -57,6 +52,8 @@ docs = [
     "restructuredtext-lint",
     "sphinx",
     "sphinxcontrib-bibtex",
+    "lxml-asserts>=0.1.2",
+    "xsdata[cli]>=25.4",
 ]
 
 [tool.uv]
@@ -83,11 +80,11 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = [ "colour_clf_io" ]
+packages = [ "colour_cxf" ]
 
 [tool.codespell]
 ignore-words-list = "socio-economic"
-skip = "BIBLIOGRAPHY.bib,CONTRIBUTORS.rst,*.ipynb"
+skip = "BIBLIOGRAPHY.bib,CONTRIBUTORS.rst,*.ipynb,./colour_cxf/cxf3/*"
 
 [tool.isort]
 ensure_newline_before_comments = true
@@ -113,6 +110,9 @@ addopts = "--durations=5"
 [tool.ruff]
 target-version = "py310"
 line-length = 88
+extend-include = ["colour_cxf/cxf3/*"]
+
+[tool.ruff.lint]
 select = ["ALL"]
 ignore = [
     "C", # Pylint - Convention
@@ -150,20 +150,22 @@ ignore = [
     "RUF022", # [*] `__all__` is not sorted
     "TRY003", # Avoid specifying long messages outside the exception class
     "UP038", #  Use `X | Y` in `isinstance` call instead of `(X, Y)`
+    "S320", # Lint is deprecated and will be removed from future ruff versions.
 ]
 typing-modules = []
 
-[tool.ruff.pydocstyle]
+[tool.ruff.lint.pydocstyle]
 convention = "numpy"
 
-[tool.ruff.per-file-ignores]
+[tool.ruff.lint.per-file-ignores]
 "__init__.py" = ["D104"]
-"colour_hdri/examples/*" = ["INP", "T201", "T203"]
+"colour_cxf/cxf3/*" = ["D", "E", "TC"]
 "docs/*" = ["INP"]
 "tasks.py" = ["INP"]
 "test_*" = ["S101"]
 "utilities/*" = ["EXE001", "INP"]
 "utilities/unicode_to_ascii.py" = ["RUF001"]
+
 
 [tool.ruff.format]
 docstring-code-format = true

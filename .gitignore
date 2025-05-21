@@ -1,0 +1,31 @@
+# Common Files
+*.egg-info
+*.pyc
+*.pyo
+.DS_Store
+.coverage*
+uv.lock
+.jj/
+
+# Common Directories
+.fleet/
+.idea/
+.ipynb_checkpoints/
+.python-version
+.vs/
+.vscode/
+.sandbox/
+build/
+dist/
+docs/_build/
+docs/generated/
+node_modules/
+references/
+
+__pycache__
+
+# Project Files
+docs/_static/Basics_*.png
+docs/_static/Examples_*.png
+docs/_static/Plotting_*.png
+docs/_static/Tutorial_*.png

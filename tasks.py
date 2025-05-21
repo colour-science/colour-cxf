@@ -15,7 +15,10 @@ from itertools import chain
 from textwrap import TextWrapper
 from typing import TYPE_CHECKING
 
-import biblib.bib
+try:
+    import biblib.bib
+except ImportError:
+    biblib = None
 from invoke.tasks import task
 
 import colour_cxf
@@ -217,21 +220,24 @@ def formatting(
 
     if bibtex:
         message_box('Cleaning up "BibTeX" file...')
-        bibtex_path = BIBLIOGRAPHY_NAME
-        with open(bibtex_path) as bibtex_file:
-            entries = biblib.bib.Parser().parse(bibtex_file.read()).get_entries()
+        if biblib is None:
+            message_box("Warning: biblib module not available, skipping BibTeX cleanup")
+        else:
+            bibtex_path = BIBLIOGRAPHY_NAME
+            with open(bibtex_path) as bibtex_file:
+                entries = biblib.bib.Parser().parse(bibtex_file.read()).get_entries()
 
-        for entry in sorted(entries.values(), key=lambda x: x.key):
-            with contextlib.suppress(KeyError):
-                del entry["file"]
-
-            for key, value in entry.items():
-                entry[key] = re.sub("(?<!\\\\)\\&", "\\&", value)
-
-        with open(bibtex_path, "w") as bibtex_file:
             for entry in sorted(entries.values(), key=lambda x: x.key):
-                bibtex_file.write(entry.to_bib())
-                bibtex_file.write("\n")
+                with contextlib.suppress(KeyError):
+                    del entry["file"]
+
+                for key, value in entry.items():
+                    entry[key] = re.sub("(?<!\\\\)\\&", "\\&", value)
+
+            with open(bibtex_path, "w") as bibtex_file:
+                for entry in sorted(entries.values(), key=lambda x: x.key):
+                    bibtex_file.write(entry.to_bib())
+                    bibtex_file.write("\n")
 
 
 @task
@@ -551,15 +557,29 @@ def sha256(ctx: Context) -> None:
 
 
 @task
-def generate_code(c, target):
-    c.run(f"xsdata generate "
-          f"--package colour_cxf.generated "
-          f"--include-header "
-          f"--structure-style namespace-clusters "
-          f"--docstring-style NumPy "
-          f"--postponed-annotations "
-          f"--union-type "
-          f"--wrapper-fields "
-          f"--unnest-classes "
-          f"--compound-fields "
-          f"{target}")
+def generate_cxf3_code(ctx: Context, target: str) -> None:
+    """
+    Generate the code for reading/writing CxF files.
+
+    The output source files will be generated in the `colour_cxf.cxf3` folder.
+
+    Parameters
+    ----------
+    ctx
+        Context.
+    target
+        Source file that contains the *CxF* XML schema.
+    """
+    ctx.run(
+        f"xsdata generate "
+        f"--package colour_cxf.cxf3 "
+        f"--include-header "
+        f"--structure-style clusters "
+        f"--docstring-style NumPy "
+        f"--postponed-annotations "
+        f"--union-type "
+        f"--wrapper-fields "
+        f"--unnest-classes "
+        f"--compound-fields "
+        f"{target}"
+    )
