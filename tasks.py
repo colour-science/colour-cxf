@@ -306,7 +306,7 @@ def tests(ctx: Context) -> None:
 
 
 @task
-def examples(ctx: Context, plots: bool = False) -> None:
+def examples(ctx: Context) -> None:
     """
     Run the examples.
 
@@ -321,18 +321,11 @@ def examples(ctx: Context, plots: bool = False) -> None:
 
     message_box("Running examples...")
 
-    for root, _dirnames, filenames in os.walk(
-        os.path.join(PYTHON_PACKAGE_NAME, "examples")
-    ):
-        for filename in fnmatch.filter(filenames, "*.py"):
-            if not plots and (
-                "plotting" in root
-                or "examples_contrast" in filename
-                or "examples_hke" in filename
-                or "examples_interpolation" in filename
-            ):
-                continue
+    message_box(PYTHON_PACKAGE_NAME)
 
+    for root, _dirnames, filenames in os.walk("examples"):
+        for filename in fnmatch.filter(filenames, "*.py"):
+            message_box(filename)
             ctx.run(f"python {os.path.join(root, filename)}")
 
 

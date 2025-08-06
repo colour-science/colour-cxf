@@ -43,7 +43,13 @@ if cxf.resources and cxf.resources.object_collection:
         rgb = obj.color_values.choice[0]
         # Type checking for RGB values
         from colour_cxf.cxf3.color_srgb import ColorSrgb
-        if isinstance(rgb, ColorSrgb) and rgb.r is not None and rgb.g is not None and rgb.b is not None:
+
+        if (
+            isinstance(rgb, ColorSrgb)
+            and rgb.r is not None
+            and rgb.g is not None
+            and rgb.b is not None
+        ):
             print(f"RGB: ({rgb.r}, {rgb.g}, {rgb.b})")
 
 print("-" * 30)

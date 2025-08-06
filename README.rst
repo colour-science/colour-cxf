@@ -15,16 +15,38 @@ Colour CxF provides tools for working with CxF files, which are XML-based files 
 - Write CxF objects to XML strings
 
 Installation
-===========
+============
 
-You can install Colour CxF using pip:
+Primary Dependencies
+~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: bash
+**Colour - CxF** requires some dependencies in order to run:
 
-    pip install colour-cxf
+- `python >= 3.10, < 3.14 <https://www.python.org/download/releases>`__
+- `typing-extensions >= 4, < 5 <https://pypi.org/project/typing-extensions>`__
+
+Pypi
+~~~~
+
+Once the dependencies are satisfied, **Colour - CxF** can be installed from
+the `Python Package Index <http://pypi.python.org/pypi/colour-cxf>`__ by
+issuing this command in a shell::
+
+    pip install --user colour-cxf
+
+The overall development dependencies are installed as follows::
+
+    pip install --user 'colour-cxf[development]'
+
+UV
+~~
+
+Using uv you can simply install **Colour - CxF** via::
+
+    uv add colour-cxf
 
 Quick Start
-==========
+===========
 
 .. code-block:: python
 
@@ -47,7 +69,7 @@ Quick Start
     print(f"Description: {cxf.file_information.description}")
 
 Documentation
-============
+=============
 
 For more detailed information and examples, see the `tutorial <docs/tutorial.rst>`_.
 

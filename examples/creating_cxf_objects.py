@@ -2,11 +2,20 @@
 Creating CxF Objects
 ===================
 
-This example demonstrates how to create CxF objects programmatically and write them to XML.
+This example demonstrates how to create CxF objects programmatically and write them
+to XML.
 """
 
 import colour_cxf
-from colour_cxf.cxf3 import CxF, FileInformation, Resources, ObjectCollection, Object, ColorValues, ColorSrgb
+from colour_cxf.cxf3 import (
+    ColorSrgb,
+    ColorValues,
+    CxF,
+    FileInformation,
+    Object,
+    ObjectCollection,
+    Resources,
+)
 
 print("Example: Creating CxF Objects")
 print("-" * 30)
@@ -16,24 +25,15 @@ cxf = CxF()
 
 # Add file information
 cxf.file_information = FileInformation(
-    creator="Colour Developers",
-    description="Programmatically created CxF file"
+    creator="Colour Developers", description="Programmatically created CxF file"
 )
 
 # Create a color object
-color_obj = Object(
-    object_type="Target",
-    name="Blue",
-    id="1"
-)
+color_obj = Object(object_type="Target", name="Blue", id="1")
 
 # Add RGB color values
 color_obj.color_values = ColorValues()
-color_obj.color_values.choice.append(ColorSrgb(
-    r=0,
-    g=0,
-    b=255
-))
+color_obj.color_values.choice.append(ColorSrgb(r=0, g=0, b=255))
 
 # Create object collection and add the color object
 obj_collection = ObjectCollection()
@@ -45,7 +45,7 @@ cxf.resources.object_collection = obj_collection
 
 # Write to XML string
 xml_bytes = colour_cxf.write_cxf(cxf)
-xml_string = xml_bytes.decode('utf-8')
+xml_string = xml_bytes.decode("utf-8")
 
 # Print the first few lines of the XML
 print("Generated XML (first 10 lines):")
@@ -54,7 +54,11 @@ print("...")
 
 # Verify by reading back the XML
 cxf_read = colour_cxf.read_cxf(xml_bytes)
-if cxf_read.resources and cxf_read.resources.object_collection and cxf_read.resources.object_collection.object_value:
+if (
+    cxf_read.resources
+    and cxf_read.resources.object_collection
+    and cxf_read.resources.object_collection.object_value
+):
     obj = cxf_read.resources.object_collection.object_value[0]
     print("\nVerification - Object read back from XML:")
     print(f"Object Name: {obj.name}")

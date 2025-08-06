@@ -165,6 +165,7 @@ convention = "numpy"
 "test_*" = ["S101"]
 "utilities/*" = ["EXE001", "INP"]
 "utilities/unicode_to_ascii.py" = ["RUF001"]
+"examples/*" = ["INP", "T201", "T203"]
 
 
 [tool.ruff.format]

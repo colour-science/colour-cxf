@@ -2,7 +2,8 @@
 Reading CxF Files
 ================
 
-This example demonstrates how to read CxF files from strings and access basic information.
+This example demonstrates how to read CxF files from strings and access basic
+information.
 """
 
 import colour_cxf
@@ -18,7 +19,7 @@ xml_string = """<?xml version="1.0" encoding="UTF-8"?>
 </cc:CxF>"""
 
 # Parse the XML string
-cxf = colour_cxf.read_cxf(xml_string.encode('utf-8'))
+cxf = colour_cxf.read_cxf(xml_string.encode("utf-8"))
 
 # Access file information
 print("Example: Reading CxF Files")

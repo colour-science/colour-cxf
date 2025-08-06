@@ -47,7 +47,7 @@ Quick Start
     </cc:CxF>"""
 
     # Parse the XML string
-    cxf = colour_cxf.read_cxf(xml_string.encode('utf-8'))
+    cxf = colour_cxf.read_cxf(xml_string.encode("utf-8"))
 
     # Access file information
     print(f"Creator: {cxf.file_information.creator}")
