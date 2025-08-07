@@ -18,9 +18,6 @@ from colour_cxf.cxf3 import (
     Resources,
 )
 
-print("Example: Combining Multiple Color Representations")
-print("-" * 30)
-
 # Create a CxF object with multiple color representations
 cxf = CxF()
 cxf.resources = Resources()
@@ -103,5 +100,3 @@ if (
             ', '.join(representations)
             }"""
         )
-
-print("-" * 30)

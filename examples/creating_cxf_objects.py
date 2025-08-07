@@ -17,9 +17,6 @@ from colour_cxf.cxf3 import (
     Resources,
 )
 
-print("Example: Creating CxF Objects")
-print("-" * 30)
-
 # Create a new CxF object
 cxf = CxF()
 
@@ -70,5 +67,3 @@ if (
             if isinstance(color_value, ColorSrgb):
                 rgb = color_value
                 print(f"RGB: ({rgb.r}, {rgb.g}, {rgb.b})")
-
-print("-" * 30)

@@ -28,9 +28,6 @@ xml_string = b"""<?xml version="1.0" encoding="UTF-8"?>
 # Parse the XML string
 cxf = colour_cxf.read_cxf(xml_string)
 
-print("Example: Accessing Color Data")
-print("-" * 30)
-
 # Access the first object in the collection
 if cxf.resources and cxf.resources.object_collection:
     obj = cxf.resources.object_collection.object_value[0]

@@ -15,9 +15,6 @@ from colour_cxf.cxf3 import (
     Resources,
 )
 
-print("Example: Working with CIELab Colors")
-print("-" * 30)
-
 # Example CxF with CIELab color
 xml_string = """<?xml version="1.0" encoding="UTF-8"?>
 <cc:CxF xmlns:cc="http://colorexchangeformat.com/CxF3-core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -91,5 +88,3 @@ if (
             if isinstance(color_value, ColorCielab):
                 lab = color_value
                 print(f"CIELab: L={lab.l}, a={lab.a}, b={lab.b}")
-
-print("-" * 30)

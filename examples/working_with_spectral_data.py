@@ -15,9 +15,6 @@ from colour_cxf.cxf3 import (
     Resources,
 )
 
-print("Example: Working with Spectral Data")
-print("-" * 30)
-
 # Example CxF with spectral data
 xml_string = """<?xml version="1.0" encoding="UTF-8"?>
 <cc:CxF xmlns:cc="http://colorexchangeformat.com/CxF3-core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -66,8 +63,9 @@ new_cxf.resources.object_collection = ObjectCollection()
 
 color_obj = Object(object_type="Target", name="Sample", id="1")
 
-# Create a simple linear ramp spectrum from 0.05 to 0.95
-spectral_values = [0.05 + i * 0.05 for i in range(19)]
+# Create a simple linear ramp spectrum from 0.05 to 0.97
+# (21 values to match the original)
+spectral_values = [0.05 + i * 0.044 for i in range(21)]
 
 color_obj.color_values = ColorValues()
 color_obj.color_values.choice.append(
@@ -106,5 +104,3 @@ if (
                     ' '.join(map(str,spectrum.value[:5]))
                     }..."""
                 )
-
-print("-" * 30)
