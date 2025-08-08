@@ -12,7 +12,7 @@ beautifulsoup4==4.13.4
     # via pydata-sphinx-theme
 biblib-simple==0.1.2
     # via colour-cxf
-certifi==2025.6.15
+certifi==2025.8.3
     # via requests
 charset-normalizer==3.4.2
     # via
@@ -76,7 +76,7 @@ restructuredtext-lint==1.4.0
     # via colour-cxf
 roman-numerals-py==3.1.0 ; python_full_version >= '3.11'
     # via sphinx
-ruff==0.12.1
+ruff==0.12.8
     # via xsdata
 snowballstemmer==3.0.1
     # via sphinx
@@ -110,7 +110,7 @@ tomli==2.2.1 ; python_full_version < '3.11'
     # via sphinx
 toposort==1.10
     # via xsdata
-typing-extensions==4.14.0
+typing-extensions==4.14.1
     # via
     #   beautifulsoup4
     #   colour-cxf
@@ -120,5 +120,5 @@ untokenize==0.1.1
     # via docformatter
 urllib3==2.5.0
     # via requests
-xsdata==25.4
+xsdata==25.7
     # via colour-cxf

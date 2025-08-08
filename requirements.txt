@@ -4,7 +4,7 @@ accessible-pygments==0.0.5
     # via pydata-sphinx-theme
 alabaster==1.0.0
     # via sphinx
-anyio==4.9.0
+anyio==4.10.0
     # via
     #   httpx
     #   jupyter-server
@@ -12,7 +12,7 @@ appnope==0.1.4 ; sys_platform == 'darwin'
     # via ipykernel
 argon2-cffi==25.1.0
     # via jupyter-server
-argon2-cffi-bindings==21.2.0
+argon2-cffi-bindings==25.1.0
     # via argon2-cffi
 arrow==1.3.0
     # via isoduration
@@ -39,7 +39,7 @@ biblib-simple==0.1.2
     # via colour-cxf
 bleach==6.2.0
     # via nbconvert
-certifi==2025.6.15
+certifi==2025.8.3
     # via
     #   httpcore
     #   httpx
@@ -70,24 +70,24 @@ colorama==0.4.6 ; sys_platform == 'win32'
     #   ipython
     #   pytest
     #   sphinx
-comm==0.2.2
+comm==0.2.3
     # via
     #   ipykernel
     #   ipywidgets
-coverage==7.9.1
+coverage==7.10.2
     # via
     #   coveralls
     #   pytest-cov
 coveralls==4.0.1
-cryptography==45.0.4 ; sys_platform == 'linux'
+cryptography==45.0.6 ; sys_platform == 'linux'
     # via secretstorage
-debugpy==1.8.14
+debugpy==1.8.16
     # via ipykernel
 decorator==5.2.1
     # via ipython
 defusedxml==0.7.1
     # via nbconvert
-distlib==0.3.9
+distlib==0.4.0
     # via virtualenv
 docformatter==1.7.7
     # via xsdata
@@ -147,7 +147,7 @@ importlib-metadata==8.7.0 ; python_full_version < '3.12'
 iniconfig==2.1.0
     # via pytest
 invoke==2.2.0
-ipykernel==6.29.5
+ipykernel==6.30.1
     # via
     #   jupyter
     #   jupyter-console
@@ -192,7 +192,7 @@ json5==0.12.0
     # via jupyterlab-server
 jsonpointer==3.0.0
     # via jsonschema
-jsonschema==4.24.0
+jsonschema==4.25.0
     # via
     #   jupyter-events
     #   jupyterlab-server
@@ -220,7 +220,7 @@ jupyter-core==5.8.1
     #   nbformat
 jupyter-events==0.12.0
     # via jupyter-server
-jupyter-lsp==2.2.5
+jupyter-lsp==2.2.6
     # via jupyterlab
 jupyter-server==2.16.0
     # via
@@ -231,7 +231,7 @@ jupyter-server==2.16.0
     #   notebook-shim
 jupyter-server-terminals==0.5.3
     # via jupyter-server
-jupyterlab==4.4.4
+jupyterlab==4.4.5
     # via
     #   jupyter
     #   notebook
@@ -247,6 +247,8 @@ keyring==25.6.0
     # via
     #   hatch
     #   twine
+lark==1.2.2
+    # via rfc3987-syntax
 latexcodec==3.0.1
     # via pybtex
 lxml==6.0.0
@@ -285,13 +287,13 @@ nbformat==5.10.4
     #   nbconvert
 nest-asyncio==1.6.0
     # via ipykernel
-nh3==0.2.21
+nh3==0.3.0
     # via readme-renderer
 nodeenv==1.9.1
     # via
     #   pre-commit
     #   pyright
-notebook==7.4.4
+notebook==7.4.5
     # via jupyter
 notebook-shim==0.2.4
     # via
@@ -369,20 +371,20 @@ pygments==2.19.2
     #   readme-renderer
     #   rich
     #   sphinx
-pyright==1.1.402
+pyright==1.1.403
 pytest==8.4.1
     # via
     #   pytest-cov
     #   pytest-xdist
 pytest-cov==6.2.1
-pytest-xdist==3.7.0
+pytest-xdist==3.8.0
 python-dateutil==2.9.0.post0
     # via
     #   arrow
     #   jupyter-client
 python-json-logger==3.3.0
     # via jupyter-events
-pywin32==310 ; platform_python_implementation != 'PyPy' and sys_platform == 'win32'
+pywin32==311 ; platform_python_implementation != 'PyPy' and sys_platform == 'win32'
     # via jupyter-core
 pywin32-ctypes==0.2.3 ; sys_platform == 'win32'
     # via keyring
@@ -396,7 +398,7 @@ pyyaml==6.0.2
     #   jupyter-events
     #   pre-commit
     #   pybtex
-pyzmq==27.0.0
+pyzmq==27.0.1
     # via
     #   ipykernel
     #   jupyter-client
@@ -431,17 +433,19 @@ rfc3986-validator==0.1.1
     # via
     #   jsonschema
     #   jupyter-events
-rich==14.0.0
+rfc3987-syntax==1.1.0
+    # via jsonschema
+rich==14.1.0
     # via
     #   hatch
     #   twine
 roman-numerals-py==3.1.0 ; python_full_version >= '3.11'
     # via sphinx
-rpds-py==0.25.1
+rpds-py==0.27.0
     # via
     #   jsonschema
     #   referencing
-ruff==0.12.1
+ruff==0.12.8
     # via xsdata
 secretstorage==3.3.3 ; sys_platform == 'linux'
     # via keyring
@@ -517,7 +521,6 @@ tornado==6.5.1
     #   terminado
 traitlets==5.14.3
     # via
-    #   comm
     #   ipykernel
     #   ipython
     #   ipywidgets
@@ -531,12 +534,12 @@ traitlets==5.14.3
     #   nbclient
     #   nbconvert
     #   nbformat
-trove-classifiers==2025.5.9.12
+trove-classifiers==2025.8.6.13
     # via hatchling
 twine==6.1.0
-types-python-dateutil==2.9.0.20250516
+types-python-dateutil==2.9.0.20250708
     # via arrow
-typing-extensions==4.14.0
+typing-extensions==4.14.1
     # via
     #   anyio
     #   async-lru
@@ -548,7 +551,6 @@ typing-extensions==4.14.0
     #   pydata-sphinx-theme
     #   pyright
     #   referencing
-    #   rich
     #   xsdata
 untokenize==0.1.1
     # via docformatter
@@ -560,9 +562,9 @@ urllib3==2.5.0
     #   twine
 userpath==1.9.2
     # via hatch
-uv==0.7.17
+uv==0.8.6
     # via hatch
-virtualenv==20.31.2
+virtualenv==20.33.1
     # via
     #   hatch
     #   pre-commit
@@ -578,7 +580,7 @@ websocket-client==1.8.0
     # via jupyter-server
 widgetsnbextension==4.0.14
     # via ipywidgets
-xsdata==25.4
+xsdata==25.7
     # via colour-cxf
 zipp==3.23.0 ; python_full_version < '3.12'
     # via importlib-metadata
