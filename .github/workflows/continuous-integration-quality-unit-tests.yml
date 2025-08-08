@@ -31,17 +31,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Install Dependencies (macOS)
-        if: matrix.os == 'macOS-latest'
-        run: |
-          brew install freeimage
-          # TODO: Drop when https://github.com/imageio/imageio/issues/628 is addressed
-          echo "IMAGEIO_FREEIMAGE_LIB=/opt/homebrew/Cellar/freeimage/3.18.0/lib/libfreeimage.3.18.0.dylib" >> $GITHUB_ENV
-      - name: Install Dependencies (Ubuntu)
-        if: matrix.os == 'ubuntu-latest'
-        run: |
-          sudo apt-get update
-          sudo apt-get --yes install graphviz graphviz-dev
       - name: Install uv
         run: |
           pip install uv
@@ -49,7 +38,6 @@ jobs:
       - name: Install Package Dependencies
         run: |
           uv sync --all-extras --no-dev
-          uv run python -c "import imageio;imageio.plugins.freeimage.download()"
         shell: bash
       - name: Pre-Commit (All Files)
         run: |

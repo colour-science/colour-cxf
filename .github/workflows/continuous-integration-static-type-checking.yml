@@ -21,16 +21,15 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Install Dependencies (macOS)
-        if: matrix.os == 'macOS-latest'
+      - name: Install uv
         run: |
-          brew install freeimage graphviz
-          pip install --no-cache-dir --config-settings="--global-option=build_ext" --config-settings="--global-option=-I$(brew --prefix graphviz)/include/" --config-settings="--global-option=-L$(brew --prefix graphviz)/lib/" pygraphviz
-          # TODO: Drop when https://github.com/imageio/imageio/issues/628 is addressed
-          echo "IMAGEIO_FREEIMAGE_LIB=/opt/homebrew/Cellar/freeimage/3.18.0/lib/libfreeimage.3.18.0.dylib" >> $GITHUB_ENV
+          pip install uv
+        shell: bash
       - name: Install Package Dependencies
         run: |
-          cat requirements.txt | grep -Eo '(^[^#]+)' | xargs -n 1 pip install || true
+          uv sync
+        shell: bash
       - name: Static Type Checking
         run: |
-          pyright --threads --skipunannotated
+          uv run pyright --threads --skipunannotated
+        shell: bash
