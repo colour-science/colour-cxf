@@ -1,0 +1,36 @@
+name: Continuous Integration - Static Type Checking
+
+on: [push, pull_request]
+
+jobs:
+  continuous-integration-static-type-checking:
+    name: ${{ matrix.os }} - Python ${{ matrix.python-version }}
+    strategy:
+      matrix:
+        os: [macOS-latest]
+        python-version: [3.13]
+      fail-fast: false
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Environment Variables
+        run: |
+          echo "CI_PACKAGE=colour_cxf" >> $GITHUB_ENV
+        shell: bash
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install Dependencies (macOS)
+        if: matrix.os == 'macOS-latest'
+        run: |
+          brew install freeimage graphviz
+          pip install --no-cache-dir --config-settings="--global-option=build_ext" --config-settings="--global-option=-I$(brew --prefix graphviz)/include/" --config-settings="--global-option=-L$(brew --prefix graphviz)/lib/" pygraphviz
+          # TODO: Drop when https://github.com/imageio/imageio/issues/628 is addressed
+          echo "IMAGEIO_FREEIMAGE_LIB=/opt/homebrew/Cellar/freeimage/3.18.0/lib/libfreeimage.3.18.0.dylib" >> $GITHUB_ENV
+      - name: Install Package Dependencies
+        run: |
+          cat requirements.txt | grep -Eo '(^[^#]+)' | xargs -n 1 pip install || true
+      - name: Static Type Checking
+        run: |
+          pyright --threads --skipunannotated
