@@ -73,7 +73,7 @@ if (
                 spectrum = color_value
                 print(
                     f"""First few spectral values: {
-                    ' '.join(map(str, spectrum.value[:5]))
+                        " ".join(map(str, spectrum.value[:5]))
                     }..."""
                 )
 
@@ -97,6 +97,6 @@ if (
 
         print(
             f"""Available color representations for {obj.name}: {
-            ', '.join(representations)
+                ", ".join(representations)
             }"""
         )
