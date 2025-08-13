@@ -43,6 +43,7 @@ classifiers = [
 
 dependencies = [
     "typing-extensions>=4,<5",
+    "xsdata>25.4",
 ]
 
 [project.optional-dependencies]

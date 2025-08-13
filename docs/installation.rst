@@ -6,9 +6,9 @@ Primary Dependencies
 
 **Colour - CxF** requires various dependencies in order to run:
 
-- `python >= 3.10, < 4 <https://www.python.org/download/releases>`__
-- `lxml >= 5.2.1 < 6 <https://pypi.org/project/lxml/>`__
-- `numpy >= 1.24, < 2 <https://pypi.org/project/numpy>`__
+- `python >= 3.10, < 3.14 <https://www.python.org/download/releases>`__
+- `typing-extensions >= 4, < 5 <https://pypi.org/project/typing-extensions>`__
+- `xsdata > 25.4 <https://pypi.org/project/xsdata>`__
 
 Pypi
 ----
