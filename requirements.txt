@@ -52,7 +52,7 @@ cffi==1.17.1
     #   zstandard
 cfgv==3.4.0
     # via pre-commit
-charset-normalizer==3.4.2
+charset-normalizer==3.4.3
     # via
     #   docformatter
     #   requests
@@ -74,7 +74,7 @@ comm==0.2.3
     # via
     #   ipykernel
     #   ipywidgets
-coverage==7.10.2
+coverage==7.10.3
     # via
     #   coveralls
     #   pytest-cov
@@ -131,7 +131,7 @@ hyperlink==21.0.0
     # via hatch
 id==1.5.0
     # via twine
-identify==2.6.12
+identify==2.6.13
     # via pre-commit
 idna==3.10
     # via
@@ -152,18 +152,11 @@ ipykernel==6.30.1
     #   jupyter
     #   jupyter-console
     #   jupyterlab
-ipython==8.37.0 ; python_full_version < '3.11'
+ipython==8.37.0
     # via
     #   ipykernel
     #   ipywidgets
     #   jupyter-console
-ipython==9.4.0 ; python_full_version >= '3.11'
-    # via
-    #   ipykernel
-    #   ipywidgets
-    #   jupyter-console
-ipython-pygments-lexers==1.1.1 ; python_full_version >= '3.11'
-    # via ipython
 ipywidgets==8.1.7
     # via jupyter
 isoduration==20.11.0
@@ -188,7 +181,7 @@ jinja2==3.1.6
     #   nbconvert
     #   sphinx
     #   xsdata
-json5==0.12.0
+json5==0.12.1
     # via jupyterlab-server
 jsonpointer==3.0.0
     # via jsonschema
@@ -256,7 +249,7 @@ lxml==6.0.0
 lxml-asserts==0.1.2
     # via colour-cxf
 lxml-stubs==0.5.1
-markdown-it-py==3.0.0
+markdown-it-py==4.0.0
     # via rich
 markupsafe==3.0.2
     # via
@@ -334,7 +327,7 @@ pluggy==1.6.0
     #   hatchling
     #   pytest
     #   pytest-cov
-pre-commit==4.2.0
+pre-commit==4.3.0
 prometheus-client==0.22.1
     # via jupyter-server
 prompt-toolkit==3.0.51
@@ -363,7 +356,6 @@ pygments==2.19.2
     # via
     #   accessible-pygments
     #   ipython
-    #   ipython-pygments-lexers
     #   jupyter-console
     #   nbconvert
     #   pydata-sphinx-theme
@@ -388,7 +380,7 @@ pywin32==311 ; platform_python_implementation != 'PyPy' and sys_platform == 'win
     # via jupyter-core
 pywin32-ctypes==0.2.3 ; sys_platform == 'win32'
     # via keyring
-pywinpty==2.0.15 ; os_name == 'nt'
+pywinpty==3.0.0 ; os_name == 'nt'
     # via
     #   jupyter-server
     #   jupyter-server-terminals
@@ -439,8 +431,6 @@ rich==14.1.0
     # via
     #   hatch
     #   twine
-roman-numerals-py==3.1.0 ; python_full_version >= '3.11'
-    # via sphinx
 rpds-py==0.27.0
     # via
     #   jsonschema
@@ -465,12 +455,7 @@ snowballstemmer==3.0.1
     # via sphinx
 soupsieve==2.7
     # via beautifulsoup4
-sphinx==8.1.3 ; python_full_version < '3.11'
-    # via
-    #   colour-cxf
-    #   pydata-sphinx-theme
-    #   sphinxcontrib-bibtex
-sphinx==8.2.3 ; python_full_version >= '3.11'
+sphinx==8.1.3
     # via
     #   colour-cxf
     #   pydata-sphinx-theme
@@ -511,7 +496,7 @@ tomlkit==0.13.3
     # via hatch
 toposort==1.10
     # via xsdata
-tornado==6.5.1
+tornado==6.5.2
     # via
     #   ipykernel
     #   jupyter-client
@@ -537,7 +522,7 @@ traitlets==5.14.3
 trove-classifiers==2025.8.6.13
     # via hatchling
 twine==6.1.0
-types-python-dateutil==2.9.0.20250708
+types-python-dateutil==2.9.0.20250809
     # via arrow
 typing-extensions==4.14.1
     # via
@@ -562,7 +547,7 @@ urllib3==2.5.0
     #   twine
 userpath==1.9.2
     # via hatch
-uv==0.8.6
+uv==0.8.9
     # via hatch
 virtualenv==20.33.1
     # via
