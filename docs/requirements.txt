@@ -14,7 +14,7 @@ biblib-simple==0.1.2
     # via colour-cxf
 certifi==2025.8.3
     # via requests
-charset-normalizer==3.4.2
+charset-normalizer==3.4.3
     # via
     #   docformatter
     #   requests
@@ -74,20 +74,13 @@ requests==2.32.4
     # via sphinx
 restructuredtext-lint==1.4.0
     # via colour-cxf
-roman-numerals-py==3.1.0 ; python_full_version >= '3.11'
-    # via sphinx
 ruff==0.12.8
     # via xsdata
 snowballstemmer==3.0.1
     # via sphinx
 soupsieve==2.7
     # via beautifulsoup4
-sphinx==8.1.3 ; python_full_version < '3.11'
-    # via
-    #   colour-cxf
-    #   pydata-sphinx-theme
-    #   sphinxcontrib-bibtex
-sphinx==8.2.3 ; python_full_version >= '3.11'
+sphinx==8.1.3
     # via
     #   colour-cxf
     #   pydata-sphinx-theme

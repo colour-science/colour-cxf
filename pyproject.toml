@@ -1,6 +1,6 @@
 [project]
 name = "colour-cxf"
-version = "0.1.0"
+version = "0.1.1"
 description = "Library to parse and create CxF files."
 readme = "README.rst"
 requires-python = ">=3.10,<3.14"
