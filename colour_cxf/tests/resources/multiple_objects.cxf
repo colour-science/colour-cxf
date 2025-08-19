@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CxF xmlns="http://colorexchangeformat.com/CxF3-core">
+    <Resources>
+        <ObjectCollection>
+            <Object ObjectType="Standard" Name="Reference Standard" Id="std1">
+                <CreationDate>2025-08-14T11:10:00Z</CreationDate>
+                <Comment>Primary reference standard</Comment>
+            </Object>
+            <Object ObjectType="Trial" Name="Test Sample 1" Id="trial1">
+                <CreationDate>2025-08-14T11:11:00Z</CreationDate>
+                <Comment>First trial sample</Comment>
+            </Object>
+            <Object ObjectType="Trial" Name="Test Sample 2" Id="trial2">
+                <CreationDate>2025-08-14T11:12:00Z</CreationDate>
+                <Comment>Second trial sample</Comment>
+            </Object>
+            <Object ObjectType="Target" Name="Color Target" Id="target1">
+                <CreationDate>2025-08-14T11:13:00Z</CreationDate>
+                <Comment>Target color for matching</Comment>
+            </Object>
+            <Object ObjectType="Substrate" Name="Paper Substrate" Id="substrate1">
+                <CreationDate>2025-08-14T11:14:00Z</CreationDate>
+                <Comment>Base substrate material</Comment>
+            </Object>
+            <Object ObjectType="Colorant" Name="Cyan Ink" Id="colorant1">
+                <CreationDate>2025-08-14T11:15:00Z</CreationDate>
+                <Comment>Cyan colorant</Comment>
+            </Object>
+            <Object ObjectType="Colorant" Name="Magenta Ink" Id="colorant2">
+                <CreationDate>2025-08-14T11:16:00Z</CreationDate>
+                <Comment>Magenta colorant</Comment>
+            </Object>
+            <Object ObjectType="Colorant" Name="Yellow Ink" Id="colorant3">
+                <CreationDate>2025-08-14T11:17:00Z</CreationDate>
+                <Comment>Yellow colorant</Comment>
+            </Object>
+            <Object ObjectType="Colorant" Name="Black Ink" Id="colorant4">
+                <CreationDate>2025-08-14T11:18:00Z</CreationDate>
+                <Comment>Black colorant</Comment>
+            </Object>
+            <Object ObjectType="Other" Name="Custom Object" Id="custom1">
+                <CreationDate>2025-08-14T11:19:00Z</CreationDate>
+                <Comment>Custom object type for special testing</Comment>
+            </Object>
+        </ObjectCollection>
+    </Resources>
+</CxF>

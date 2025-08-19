@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CxF xmlns="http://colorexchangeformat.com/CxF3-core">
+    <FileInformation>
+        <Creator>String Edge Case Tester</Creator>
+        <CreationDate>2025-08-14T11:10:00Z</CreationDate>
+        <Description>Testing various string edge cases and boundary values</Description>
+        <Comment>Tests empty strings, very long strings, special characters, and Unicode</Comment>
+        <!-- Empty string test -->
+        <Tag Name="" Value=""/>
+        <!-- Single character strings -->
+        <Tag Name="a" Value="b"/>
+        <!-- Very short meaningful strings -->
+        <Tag Name="OK" Value="OK"/>
+        <!-- Special characters and punctuation -->
+        <Tag Name="Special!@#$%^&amp;*()_+-={}[]|;':&quot;,.&lt;&gt;?/~`" Value="Value with &quot;quotes&quot; and &amp;ampersand &lt;brackets&gt;"/>
+        <!-- Unicode characters -->
+        <Tag Name="Unicode" Value="Test with émoji: 🎨 and accénts: àáâãäåæçèéêë"/>
+        <!-- Whitespace variations -->
+        <Tag Name="  SpacePadded  " Value="  Value with spaces  "/>
+        <Tag Name="Tab&#x9;Char" Value="Value&#x9;with&#x9;tabs"/>
+        <Tag Name="NewLine&#xA;Test" Value="Value&#xA;with&#xA;newlines"/>
+        <!-- Numbers as strings -->
+        <Tag Name="123" Value="456.789"/>
+        <Tag Name="NegativeNumber" Value="-123.456"/>
+        <Tag Name="ScientificNotation" Value="1.23E+10"/>
+        <!-- Boolean-like strings -->
+        <Tag Name="BooleanTrue" Value="true"/>
+        <Tag Name="BooleanFalse" Value="false"/>
+        <Tag Name="Boolean1" Value="1"/>
+        <Tag Name="Boolean0" Value="0"/>
+        <!-- Long string (1000+ characters) -->
+        <Tag Name="VeryLongString" Value="This is a very long string designed to test the boundaries of string handling in XML processing systems. It contains repetitive content to reach a significant length while remaining meaningful for testing purposes. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."/>
+        <!-- Path-like strings -->
+        <Tag Name="FilePath" Value="C:\Windows\System32\file.txt"/>
+        <Tag Name="UnixPath" Value="/usr/local/bin/application"/>
+        <Tag Name="URLLike" Value="https://example.com/path?param=value&amp;other=123"/>
+        <!-- XML-like content in strings -->
+        <Tag Name="XMLContent" Value="&lt;element attribute=&quot;value&quot;&gt;content&lt;/element&gt;"/>
+        <!-- Date-like strings (not actual dates) -->
+        <Tag Name="DateString" Value="2025-08-14"/>
+        <Tag Name="TimeString" Value="11:10:00"/>
+        <!-- Color-related strings -->
+        <Tag Name="HexColor" Value="#FF00FF"/>
+        <Tag Name="RGBColor" Value="rgb(255, 0, 255)"/>
+        <Tag Name="ColorName" Value="Magenta"/>
+    </FileInformation>
+    <Resources>
+        <ObjectCollection>
+            <Object ObjectType="" Name="" Id="stringtest1">
+                <CreationDate>2025-08-14T11:10:00Z</CreationDate>
+                <Comment></Comment>
+            </Object>
+        </ObjectCollection>
+    </Resources>
+</CxF>

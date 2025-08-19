@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CxF xmlns="http://colorexchangeformat.com/CxF3-core">
+    <FileInformation>
+        <Creator>Test Creator Application v1.0</Creator>
+        <CreationDate>2025-08-14T11:10:00Z</CreationDate>
+        <Description>Test CxF file with all optional FileInformation elements present</Description>
+        <Comment>This file tests the edge case of maximum FileInformation content</Comment>
+        <Tag Name="CustomProperty1" Value="CustomValue1"/>
+        <Tag Name="CustomProperty2" Value="CustomValue2"/>
+        <Tag Name="TestCategory" Value="EdgeCase"/>
+        <Tag Name="Version" Value="3.0"/>
+        <Tag Name="Application" Value="ColorExchangeFormatTester"/>
+    </FileInformation>
+</CxF>

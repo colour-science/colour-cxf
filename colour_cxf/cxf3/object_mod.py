@@ -33,7 +33,7 @@ class Object:
     color_values
         The collection of all color value elements used to describe one or
         more color measurement instances of this object. Includes Spectral
-        data, CIELab data, sRGB data, and other non device specifc color
+        data, CIELab data, sRGB data, and other non device specific color
         space types.
     color_difference_values
         The collection of all color difference value elements used to
@@ -42,7 +42,7 @@ class Object:
     device_color_values
         The collection of all color value elements used to describe one or
         more device dependent color space descriptions of this object.
-        Includes RGB, HTML, CMYK, Recipes and other device specifc color
+        Includes RGB, HTML, CMYK, Recipes and other device specific color
         space types.
     tag_collection
         Named Collection(s) of Tags (name/value pairs) which allow

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CxF xmlns="http://colorexchangeformat.com/CxF3-core">
+    <FileInformation>
+        <Creator>DateTime Edge Case Tester</Creator>
+        <!-- UTC format with Z -->
+        <CreationDate>2025-08-14T11:10:00Z</CreationDate>
+        <Description>Testing various dateTime formats and edge cases</Description>
+        <Comment>Tests include UTC, timezone offsets, leap years, and boundary dates</Comment>
+        <Tag Name="DateFormat1" Value="2025-08-14T11:10:00Z"/>
+        <Tag Name="DateFormat2" Value="2025-08-14T11:10:00+00:00"/>
+        <Tag Name="DateFormat3" Value="2025-08-14T11:10:00-05:00"/>
+        <Tag Name="DateFormat4" Value="2025-08-14T11:10:00.000Z"/>
+        <Tag Name="LeapYear" Value="2024-02-29T00:00:00Z"/>
+        <Tag Name="YearBoundary" Value="2000-01-01T00:00:00Z"/>
+        <Tag Name="FutureDate" Value="2099-12-31T23:59:59Z"/>
+        <Tag Name="EarlyDate" Value="1900-01-01T00:00:00Z"/>
+    </FileInformation>
+</CxF>

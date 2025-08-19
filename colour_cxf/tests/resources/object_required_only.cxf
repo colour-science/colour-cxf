@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CxF xmlns="http://colorexchangeformat.com/CxF3-core">
+    <Resources>
+        <ObjectCollection>
+            <Object ObjectType="Standard" Name="Minimal Object" Id="obj1">
+                <CreationDate>2025-08-14T11:10:00Z</CreationDate>
+            </Object>
+        </ObjectCollection>
+    </Resources>
+</CxF>

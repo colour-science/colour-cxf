@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CxF xmlns="http://colorexchangeformat.com/CxF3-core">
+    <FileInformation>
+        <Creator>Custom Spectrum Irregular Tester</Creator>
+        <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+        <Description>Testing custom spectrum with irregular wavelength intervals</Description>
+        <Comment>Tests non-uniform wavelength intervals, out-of-order wavelengths, and duplicate wavelengths</Comment>
+    </FileInformation>
+    <Resources>
+        <ObjectCollection>
+            <Object ObjectType="Standard" Name="Irregular Wavelength Sample" Id="irregular1">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Sample with non-uniform wavelength intervals</Comment>
+                <ColorValues>
+                    <CustomSpectrum ColorSpecification="spec1">
+                        <SpectralPoint WL="380.5">0.45</SpectralPoint>
+                        <SpectralPoint WL="381.7">0.46</SpectralPoint>
+                        <SpectralPoint WL="385">0.50</SpectralPoint>
+                        <SpectralPoint WL="387.3">0.52</SpectralPoint>
+                        <SpectralPoint WL="392.1">0.48</SpectralPoint>
+                        <SpectralPoint WL="400">0.55</SpectralPoint>
+                        <SpectralPoint WL="415.8">0.60</SpectralPoint>
+                        <SpectralPoint WL="450">0.65</SpectralPoint>
+                        <SpectralPoint WL="500">0.70</SpectralPoint>
+                        <SpectralPoint WL="550">0.75</SpectralPoint>
+                        <SpectralPoint WL="600">0.80</SpectralPoint>
+                        <SpectralPoint WL="650">0.78</SpectralPoint>
+                        <SpectralPoint WL="700">0.72</SpectralPoint>
+                    </CustomSpectrum>
+                </ColorValues>
+            </Object>
+            <Object ObjectType="Standard" Name="Out of Order Wavelengths" Id="outoforder1">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Sample with out-of-order wavelength points</Comment>
+                <ColorValues>
+                    <CustomSpectrum ColorSpecification="spec1">
+                        <SpectralPoint WL="450">0.65</SpectralPoint>
+                        <SpectralPoint WL="400">0.55</SpectralPoint>
+                        <SpectralPoint WL="500">0.70</SpectralPoint>
+                        <SpectralPoint WL="380">0.45</SpectralPoint>
+                        <SpectralPoint WL="600">0.80</SpectralPoint>
+                        <SpectralPoint WL="550">0.75</SpectralPoint>
+                        <SpectralPoint WL="700">0.72</SpectralPoint>
+                        <SpectralPoint WL="650">0.78</SpectralPoint>
+                    </CustomSpectrum>
+                </ColorValues>
+            </Object>
+            <Object ObjectType="Standard" Name="Duplicate Wavelengths" Id="duplicate1">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Sample with duplicate wavelength points (edge case testing)</Comment>
+                <ColorValues>
+                    <CustomSpectrum ColorSpecification="spec1">
+                        <SpectralPoint WL="400">0.55</SpectralPoint>
+                        <SpectralPoint WL="450">0.65</SpectralPoint>
+                        <SpectralPoint WL="500">0.70</SpectralPoint>
+                        <SpectralPoint WL="500">0.71</SpectralPoint>
+                        <SpectralPoint WL="550">0.75</SpectralPoint>
+                        <SpectralPoint WL="600">0.80</SpectralPoint>
+                        <SpectralPoint WL="600">0.81</SpectralPoint>
+                        <SpectralPoint WL="650">0.78</SpectralPoint>
+                        <SpectralPoint WL="700">0.72</SpectralPoint>
+                    </CustomSpectrum>
+                </ColorValues>
+            </Object>
+            <Object ObjectType="Standard" Name="High Precision Wavelengths" Id="precision1">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Sample with high precision decimal wavelengths</Comment>
+                <ColorValues>
+                    <CustomSpectrum ColorSpecification="spec1">
+                        <SpectralPoint WL="400.123456789">0.45</SpectralPoint>
+                        <SpectralPoint WL="450.987654321">0.65</SpectralPoint>
+                        <SpectralPoint WL="500.555555555">0.70</SpectralPoint>
+                        <SpectralPoint WL="550.1">0.75</SpectralPoint>
+                        <SpectralPoint WL="600.0001">0.80</SpectralPoint>
+                        <SpectralPoint WL="650.9999">0.78</SpectralPoint>
+                        <SpectralPoint WL="700.000000001">0.72</SpectralPoint>
+                    </CustomSpectrum>
+                </ColorValues>
+            </Object>
+        </ObjectCollection>
+        <ColorSpecificationCollection>
+            <ColorSpecification Id="spec1">
+                <TristimulusSpec>
+                    <Illuminant>D65</Illuminant>
+                    <Observer>2_Degree</Observer>
+                    <Method>E308_Table5</Method>
+                </TristimulusSpec>
+                <MeasurementSpec>
+                    <MeasurementType>Spectrum_Custom</MeasurementType>
+                    <GeometryChoice>
+                        <SingleAngle>
+                            <SingleAngleConfiguration>Annular</SingleAngleConfiguration>
+                            <IlluminationAngle>45.0</IlluminationAngle>
+                            <MeasurementAngle>0.0</MeasurementAngle>
+                        </SingleAngle>
+                    </GeometryChoice>
+                </MeasurementSpec>
+            </ColorSpecification>
+        </ColorSpecificationCollection>
+    </Resources>
+</CxF>

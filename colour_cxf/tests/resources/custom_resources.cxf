@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CxF xmlns="http://colorexchangeformat.com/CxF3-core"
+     xmlns:custom="http://example.com/custom-namespace"
+     xmlns:vendor="http://vendor.example.com/extensions">
+    <FileInformation>
+        <Creator>Custom Resources Tester</Creator>
+        <CreationDate>2025-08-14T11:10:00Z</CreationDate>
+        <Description>Testing CustomResources with external namespaces</Description>
+        <Comment>Tests the anyAttribute and any element capabilities of CustomResources</Comment>
+    </FileInformation>
+    <CustomResources>
+        <!-- Custom namespace elements with various structures -->
+        <custom:VendorExtension version="1.0" id="ext1">
+            <custom:CustomProperty name="brightness" value="85.2"/>
+            <custom:CustomProperty name="contrast" value="12.5"/>
+            <custom:Metadata>
+                <custom:Author>Test System</custom:Author>
+                <custom:Version>2.1</custom:Version>
+            </custom:Metadata>
+        </custom:VendorExtension>
+
+        <vendor:ProprietaryData format="binary" encoding="base64">
+            <vendor:DataBlock>SGVsbG8gV29ybGQ=</vendor:DataBlock>
+            <vendor:Checksum algorithm="MD5">5d41402abc4b2a76b9719d911017c592</vendor:Checksum>
+        </vendor:ProprietaryData>
+
+        <custom:MeasurementDevice>
+            <custom:Manufacturer>Acme Color Systems</custom:Manufacturer>
+            <custom:Model>ColorMaster 3000</custom:Model>
+            <custom:SerialNumber>CM3K-12345</custom:SerialNumber>
+            <custom:CalibrationDate>2025-08-01T00:00:00Z</custom:CalibrationDate>
+            <custom:Settings>
+                <custom:Aperture size="4mm"/>
+                <custom:IntegrationTime value="100ms"/>
+                <custom:Averaging samples="10"/>
+            </custom:Settings>
+        </custom:MeasurementDevice>
+
+        <vendor:QualityMetrics>
+            <vendor:SNR unit="dB">42.5</vendor:SNR>
+            <vendor:Repeatability>0.02</vendor:Repeatability>
+            <vendor:Accuracy deltaE="0.1"/>
+        </vendor:QualityMetrics>
+
+        <!-- Testing processContents="lax" with mixed content -->
+        <custom:MixedContent>
+            This is text content mixed with
+            <custom:InlineElement attr="value">inline elements</custom:InlineElement>
+            and more text.
+        </custom:MixedContent>
+    </CustomResources>
+</CxF>

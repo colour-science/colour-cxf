@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CxF xmlns="http://colorexchangeformat.com/CxF3-core">
+    <FileInformation>
+        <Creator>Spectral Data Boundary Tester</Creator>
+        <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+        <Description>Testing spectral data boundary cases with extreme wavelength ranges and reflectance values</Description>
+        <Comment>Tests minimum/maximum wavelengths, all valid increments, and extreme reflectance values including fluorescent materials</Comment>
+    </FileInformation>
+    <Resources>
+        <ObjectCollection>
+            <Object ObjectType="Standard" Name="Extreme Reflectance Sample" Id="extreme1">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Sample with extreme reflectance values near boundaries</Comment>
+                <ColorValues>
+                    <!-- Reflectance values at extreme boundaries: -0.099 to 2.999 -->
+                    <ReflectanceSpectrum StartWL="360" ColorSpecification="spec1">
+                        2.95 2.99 1.45 0.001 -0.09 0.5 0.6 0.7 0.8 0.9 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8 2.9 -0.05 -0.01 0.0 0.001 0.999 1.999 2.5 2.99 2.95 2.0 1.5
+                    </ReflectanceSpectrum>
+                </ColorValues>
+            </Object>
+            <Object ObjectType="Standard" Name="Fluorescent Material" Id="fluorescent1">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Fluorescent material with reflectance values greater than 1.0</Comment>
+                <ColorValues>
+                    <!-- Fluorescent materials can have values > 1.0 -->
+                    <ReflectanceSpectrum StartWL="400" ColorSpecification="spec2">
+                        1.2 1.5 1.8 2.1 2.4 2.7 2.95 2.8 2.5 2.2 1.9 1.6 1.3 1.0 0.8 0.6 0.4 0.3 0.2 0.1
+                    </ReflectanceSpectrum>
+                </ColorValues>
+            </Object>
+            <Object ObjectType="Standard" Name="Minimal Wavelength Range" Id="minimal1">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Testing minimum wavelength at 360nm</Comment>
+                <ColorValues>
+                    <!-- Single wavelength point at minimum -->
+                    <ReflectanceSpectrum StartWL="360" ColorSpecification="spec1">
+                        0.5
+                    </ReflectanceSpectrum>
+                </ColorValues>
+            </Object>
+        </ObjectCollection>
+        <ColorSpecificationCollection>
+            <ColorSpecification Id="spec1">
+                <TristimulusSpec>
+                    <Illuminant>D65</Illuminant>
+                    <Observer>2_Degree</Observer>
+                    <Method>E308_Table5</Method>
+                </TristimulusSpec>
+                <MeasurementSpec>
+                    <MeasurementType>Spectrum_Reflectance</MeasurementType>
+                    <GeometryChoice>
+                        <SingleAngle>
+                            <SingleAngleConfiguration>Annular</SingleAngleConfiguration>
+                            <IlluminationAngle>45.0</IlluminationAngle>
+                            <MeasurementAngle>0.0</MeasurementAngle>
+                        </SingleAngle>
+                    </GeometryChoice>
+                    <WavelengthRange StartWL="360" Increment="1"/>
+                </MeasurementSpec>
+            </ColorSpecification>
+            <ColorSpecification Id="spec2">
+                <TristimulusSpec>
+                    <Illuminant>D50</Illuminant>
+                    <Observer>10_Degree</Observer>
+                    <Method>E308_Table6</Method>
+                </TristimulusSpec>
+                <MeasurementSpec>
+                    <MeasurementType>Spectrum_Reflectance</MeasurementType>
+                    <GeometryChoice>
+                        <SingleAngle>
+                            <SingleAngleConfiguration>Annular</SingleAngleConfiguration>
+                            <IlluminationAngle>45.0</IlluminationAngle>
+                            <MeasurementAngle>0.0</MeasurementAngle>
+                        </SingleAngle>
+                    </GeometryChoice>
+                    <WavelengthRange StartWL="400" Increment="20"/>
+                </MeasurementSpec>
+            </ColorSpecification>
+        </ColorSpecificationCollection>
+    </Resources>
+</CxF>

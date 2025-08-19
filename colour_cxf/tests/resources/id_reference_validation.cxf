@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CxF xmlns="http://colorexchangeformat.com/CxF3-core">
+    <FileInformation>
+        <Creator>ID Reference Validation Tester</Creator>
+        <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+        <Description>Testing ID reference validation edge cases</Description>
+        <Comment>Tests missing ColorSpecification references, case sensitivity in NCName references</Comment>
+    </FileInformation>
+    <Resources>
+        <ObjectCollection>
+            <Object ObjectType="Standard" Name="Valid Reference" Id="valid1">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Object with valid ColorSpecification reference</Comment>
+                <ColorValues>
+                    <ColorCIELab ColorSpecification="SPEC1">
+                        <L>50.0</L>
+                        <A>0.0</A>
+                        <B>0.0</B>
+                    </ColorCIELab>
+                </ColorValues>
+            </Object>
+            <Object ObjectType="Standard" Name="Case Sensitive Test" Id="case1">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Testing case sensitivity of ColorSpecification reference</Comment>
+                <ColorValues>
+                    <ColorCIELab ColorSpecification="spec1">
+                        <L>75.0</L>
+                        <A>25.0</A>
+                        <B>-15.0</B>
+                    </ColorCIELab>
+                </ColorValues>
+            </Object>
+            <Object ObjectType="Standard" Name="NCName Edge Cases" Id="ncname_test_123">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Object with NCName containing numbers and underscores</Comment>
+                <ColorValues>
+                    <ColorCIELab ColorSpecification="SPEC1">
+                        <L>25.0</L>
+                        <A>-10.0</A>
+                        <B>5.0</B>
+                    </ColorCIELab>
+                </ColorValues>
+            </Object>
+            <Object ObjectType="Standard" Name="Hyphen NCName" Id="test-id-with-hyphens">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Object with NCName containing hyphens</Comment>
+                <ColorValues>
+                    <ColorCIELab ColorSpecification="SPEC1">
+                        <L>90.0</L>
+                        <A>-5.0</A>
+                        <B>10.0</B>
+                    </ColorCIELab>
+                </ColorValues>
+            </Object>
+            <Object ObjectType="Standard" Name="Period NCName" Id="test.id.with.periods">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Object with NCName containing periods</Comment>
+                <ColorValues>
+                    <ColorCIELab ColorSpecification="SPEC1">
+                        <L>60.0</L>
+                        <A>30.0</A>
+                        <B>-25.0</B>
+                    </ColorCIELab>
+                </ColorValues>
+            </Object>
+            <Object ObjectType="Standard" Name="Unicode NCName" Id="colorÉ">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Object with NCName containing Unicode characters</Comment>
+                <ColorValues>
+                    <ColorCIELab ColorSpecification="SPEC1">
+                        <L>40.0</L>
+                        <A>-20.0</A>
+                        <B>35.0</B>
+                    </ColorCIELab>
+                </ColorValues>
+            </Object>
+            <Object ObjectType="Standard" Name="Long NCName" Id="VeryLongNCNameIdentifierForTestingPurposesWithManyCharacters123">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Object with very long NCName identifier</Comment>
+                <ColorValues>
+                    <ColorCIELab ColorSpecification="SPEC1">
+                        <L>80.0</L>
+                        <A>15.0</A>
+                        <B>-40.0</B>
+                    </ColorCIELab>
+                </ColorValues>
+            </Object>
+            <Object ObjectType="Standard" Name="Minimum NCName" Id="a">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Object with minimum length NCName (single character)</Comment>
+                <ColorValues>
+                    <ColorCIELab ColorSpecification="SPEC1">
+                        <L>95.0</L>
+                        <A>-2.0</A>
+                        <B>2.0</B>
+                    </ColorCIELab>
+                </ColorValues>
+            </Object>
+            <Object ObjectType="Trial" Name="Self Reference Test" Id="selfref1">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Object for testing StandardRef references</Comment>
+                <ColorValues>
+                    <ColorCIELab ColorSpecification="SPEC1">
+                        <L>65.0</L>
+                        <A>20.0</A>
+                        <B>-30.0</B>
+                    </ColorCIELab>
+                </ColorValues>
+                <ColorDifferenceValues>
+                    <DeltaCIELab ColorSpecification="SPEC1" StandardRef="valid1">
+                        <dL>5.0</dL>
+                        <dA>1.0</dA>
+                        <dB>-2.0</dB>
+                        <dE>5.5</dE>
+                    </DeltaCIELab>
+                </ColorDifferenceValues>
+            </Object>
+        </ObjectCollection>
+        <ColorSpecificationCollection>
+            <ColorSpecification Id="SPEC1">
+                <TristimulusSpec>
+                    <Illuminant>D65</Illuminant>
+                    <Observer>2_Degree</Observer>
+                    <Method>E308_Table5</Method>
+                </TristimulusSpec>
+                <MeasurementSpec>
+                    <MeasurementType>Colorimetric_Reflectance</MeasurementType>
+                    <GeometryChoice>
+                        <SingleAngle>
+                            <SingleAngleConfiguration>Annular</SingleAngleConfiguration>
+                            <IlluminationAngle>45.0</IlluminationAngle>
+                            <MeasurementAngle>0.0</MeasurementAngle>
+                        </SingleAngle>
+                    </GeometryChoice>
+                </MeasurementSpec>
+            </ColorSpecification>
+            <ColorSpecification Id="spec1">
+                <TristimulusSpec>
+                    <Illuminant>D50</Illuminant>
+                    <Observer>10_Degree</Observer>
+                    <Method>E308_Table6</Method>
+                </TristimulusSpec>
+                <MeasurementSpec>
+                    <MeasurementType>Colorimetric_Reflectance</MeasurementType>
+                    <GeometryChoice>
+                        <SingleAngle>
+                            <SingleAngleConfiguration>Annular</SingleAngleConfiguration>
+                            <IlluminationAngle>45.0</IlluminationAngle>
+                            <MeasurementAngle>0.0</MeasurementAngle>
+                        </SingleAngle>
+                    </GeometryChoice>
+                </MeasurementSpec>
+            </ColorSpecification>
+        </ColorSpecificationCollection>
+    </Resources>
+</CxF>

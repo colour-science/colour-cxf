@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CxF xmlns="http://colorexchangeformat.com/CxF3-core">
+    <FileInformation>
+        <Creator>Enumeration Edge Case Tester</Creator>
+        <CreationDate>2025-08-14T11:10:00Z</CreationDate>
+        <Description>Testing all enumeration boundary values</Description>
+        <Comment>Tests all possible enum values from the schema</Comment>
+        <!-- ASTM Table Types -->
+        <Tag Name="AstmTable1" Value="E308_Table5"/>
+        <Tag Name="AstmTable2" Value="E308_Table6"/>
+        <Tag Name="AstmTable3" Value="E308_1nm"/>
+        <Tag Name="AstmTable4" Value="unknown"/>
+        <!-- Sphere Types -->
+        <Tag Name="Sphere1" Value="Specular_Included"/>
+        <Tag Name="Sphere2" Value="Specular_Excluded"/>
+        <Tag Name="Sphere3" Value="Diffuse"/>
+        <!-- Luminance Units -->
+        <Tag Name="LuminanceUnit1" Value="normalized"/>
+        <Tag Name="LuminanceUnit2" Value="fL"/>
+        <Tag Name="LuminanceUnit3" Value="cd/ft2"/>
+        <Tag Name="LuminanceUnit4" Value="cd/m2"/>
+        <!-- Density Filter Types -->
+        <Tag Name="DensityFilter1" Value="Visual"/>
+        <Tag Name="DensityFilter2" Value="Cyan"/>
+        <Tag Name="DensityFilter3" Value="Magenta"/>
+        <Tag Name="DensityFilter4" Value="Yellow"/>
+        <Tag Name="DensityFilter5" Value="Black"/>
+        <Tag Name="DensityFilter6" Value="Red"/>
+        <Tag Name="DensityFilter7" Value="Green"/>
+        <Tag Name="DensityFilter8" Value="Blue"/>
+        <Tag Name="DensityFilter9" Value="A"/>
+        <Tag Name="DensityFilter10" Value="B"/>
+        <!-- Illuminant Types -->
+        <Tag Name="Illuminant1" Value="A"/>
+        <Tag Name="Illuminant2" Value="D50"/>
+        <Tag Name="Illuminant3" Value="D65"/>
+        <Tag Name="Illuminant4" Value="Custom"/>
+        <!-- Target Types -->
+        <Tag Name="Target1" Value="IT8.7/1"/>
+        <Tag Name="Target2" Value="IT8.7/3"/>
+        <Tag Name="Target3" Value="ECI2002"/>
+        <Tag Name="Target4" Value="Other"/>
+        <!-- Substrate Types -->
+        <Tag Name="Substrate1" Value="Paper"/>
+        <Tag Name="Substrate2" Value="Plastic"/>
+        <Tag Name="Substrate3" Value="Metal"/>
+        <Tag Name="Substrate4" Value="Other"/>
+        <!-- Device Class Types -->
+        <Tag Name="DeviceClass1" Value="DeviceClass_Spot"/>
+        <Tag Name="DeviceClass2" Value="DeviceClass_Scanning"/>
+        <Tag Name="DeviceClass3" Value="DeviceClass_Other"/>
+        <!-- Observer Types -->
+        <Tag Name="Observer1" Value="2_Degree"/>
+        <Tag Name="Observer2" Value="10_Degree"/>
+        <Tag Name="Observer3" Value="Custom_CMF"/>
+        <!-- Finish Types -->
+        <Tag Name="Finish1" Value="Coated"/>
+        <Tag Name="Finish2" Value="Matte"/>
+        <Tag Name="Finish3" Value="Glossy"/>
+        <Tag Name="Finish4" Value="Other"/>
+        <!-- Filter Types -->
+        <Tag Name="Filter1" Value="Filter_None"/>
+        <Tag Name="Filter2" Value="Filter_UVExcluded"/>
+        <Tag Name="Filter3" Value="Filter_Custom"/>
+        <!-- Spectrum Types -->
+        <Tag Name="Spectrum1" Value="Spectrum_Reflectance"/>
+        <Tag Name="Spectrum2" Value="Spectrum_Transmittance"/>
+        <Tag Name="Spectrum3" Value="Spectrum_Emissive"/>
+        <Tag Name="Spectrum4" Value="Colorimetric_Reflectance"/>
+        <Tag Name="Spectrum5" Value="Spectrum_Custom"/>
+        <!-- Device Illumination Types -->
+        <Tag Name="DeviceIllum1" Value="M0_Incandescent"/>
+        <Tag Name="DeviceIllum2" Value="M1_Daylight"/>
+        <Tag Name="DeviceIllum3" Value="M2_UVExcluded"/>
+        <Tag Name="DeviceIllum4" Value="M3_Polarized"/>
+        <Tag Name="DeviceIllum5" Value="Custom"/>
+    </FileInformation>
+</CxF>

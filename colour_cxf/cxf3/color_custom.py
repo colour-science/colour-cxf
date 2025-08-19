@@ -22,7 +22,7 @@ class ColorCustom:
     Parameters
     ----------
     spot_color
-        Custom spot colors, specifiec by name and percentage 0 (inclusive)
+        Custom spot colors, specified by name and percentage 0 (inclusive)
         to 100 (inclusive).
     profile_specification
     name

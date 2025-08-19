@@ -16,7 +16,7 @@ __NAMESPACE__ = "http://colorexchangeformat.com/CxF3-core"
 @dataclass
 class SpotColor(SpotColorType):
     """
-    Optional spot colors, specifiec by name and percentage 0 (inclusive) to 100
+    Optional spot colors, specific by name and percentage 0 (inclusive) to 100
     (inclusive).
     """
 

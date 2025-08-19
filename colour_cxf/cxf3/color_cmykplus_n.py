@@ -31,7 +31,7 @@ class ColorCmykplusN:
     black
         Percent black 0 (inclusive) to 100 (inclusive).
     spot_color
-        Optional spot colors, specifiec by name and percentage 0 (inclusive)
+        Optional spot colors, specific by name and percentage 0 (inclusive)
         to 100 (inclusive).
     profile_specification
     name

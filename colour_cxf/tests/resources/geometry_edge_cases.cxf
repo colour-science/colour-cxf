@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CxF xmlns="http://colorexchangeformat.com/CxF3-core">
+    <FileInformation>
+        <Creator>Geometry Configuration Edge Cases Tester</Creator>
+        <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+        <Description>Testing geometry configuration edge cases</Description>
+        <Comment>Tests MultiAngle with missing/extra angles, UnknownGeometry with minimum valid string, and various geometry configurations</Comment>
+    </FileInformation>
+    <Resources>
+        <ObjectCollection>
+            <Object ObjectType="Standard" Name="MultiAngle Sample" Id="multiangle1">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Sample measured with multiple angles</Comment>
+                <ColorValues>
+                    <ColorCIELab ColorSpecification="spec_multiangle">
+                        <L>50.0</L>
+                        <A>0.0</A>
+                        <B>0.0</B>
+                    </ColorCIELab>
+                </ColorValues>
+            </Object>
+            <Object ObjectType="Standard" Name="MultiAngle with Azimuth" Id="multiangle2">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Sample with multiangle including azimuth angles</Comment>
+                <ColorValues>
+                    <ColorCIELab ColorSpecification="spec_multiangle_azimuth">
+                        <L>75.0</L>
+                        <A>25.0</A>
+                        <B>-15.0</B>
+                    </ColorCIELab>
+                </ColorValues>
+            </Object>
+            <Object ObjectType="Standard" Name="Unknown Geometry Sample" Id="unknown1">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Sample with unknown geometry configuration</Comment>
+                <ColorValues>
+                    <ColorCIELab ColorSpecification="spec_unknown">
+                        <L>25.0</L>
+                        <A>-10.0</A>
+                        <B>5.0</B>
+                    </ColorCIELab>
+                </ColorValues>
+            </Object>
+            <Object ObjectType="Standard" Name="Sphere Geometry Sample" Id="sphere1">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Sample with sphere geometry</Comment>
+                <ColorValues>
+                    <ColorCIELab ColorSpecification="spec_sphere">
+                        <L>90.0</L>
+                        <A>-5.0</A>
+                        <B>10.0</B>
+                    </ColorCIELab>
+                </ColorValues>
+            </Object>
+            <Object ObjectType="Standard" Name="Emissive Mode Sample" Id="emissive1">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Sample with emissive measurement mode</Comment>
+                <ColorValues>
+                    <ColorCIELab ColorSpecification="spec_emissive">
+                        <L>60.0</L>
+                        <A>30.0</A>
+                        <B>-25.0</B>
+                    </ColorCIELab>
+                </ColorValues>
+            </Object>
+        </ObjectCollection>
+        <ColorSpecificationCollection>
+            <ColorSpecification Id="spec_multiangle">
+                <TristimulusSpec>
+                    <Illuminant>D65</Illuminant>
+                    <Observer>2_Degree</Observer>
+                    <Method>E308_Table5</Method>
+                </TristimulusSpec>
+                <MeasurementSpec>
+                    <MeasurementType>Colorimetric_Reflectance</MeasurementType>
+                    <GeometryChoice>
+                        <MultiAngle>
+                            <BRDFAngle Notation="15as">
+                                <IlluminationAngle>45</IlluminationAngle>
+                                <Aspecular>15</Aspecular>
+                                <!-- Azimuth is optional - testing without -->
+                            </BRDFAngle>
+                            <BRDFAngle Notation="25as">
+                                <IlluminationAngle>45</IlluminationAngle>
+                                <Aspecular>25</Aspecular>
+                            </BRDFAngle>
+                            <BRDFAngle Notation="45as">
+                                <IlluminationAngle>45</IlluminationAngle>
+                                <Aspecular>45</Aspecular>
+                            </BRDFAngle>
+                        </MultiAngle>
+                    </GeometryChoice>
+                </MeasurementSpec>
+            </ColorSpecification>
+            <ColorSpecification Id="spec_multiangle_azimuth">
+                <TristimulusSpec>
+                    <Illuminant>D50</Illuminant>
+                    <Observer>10_Degree</Observer>
+                    <Method>E308_Table6</Method>
+                </TristimulusSpec>
+                <MeasurementSpec>
+                    <MeasurementType>Colorimetric_Reflectance</MeasurementType>
+                    <GeometryChoice>
+                        <MultiAngle>
+                            <BRDFAngle Notation="15as30az">
+                                <IlluminationAngle>45</IlluminationAngle>
+                                <Aspecular>15</Aspecular>
+                                <Azimuth>30</Azimuth>
+                            </BRDFAngle>
+                            <BRDFAngle Notation="25as60az">
+                                <IlluminationAngle>45</IlluminationAngle>
+                                <Aspecular>25</Aspecular>
+                                <Azimuth>60</Azimuth>
+                            </BRDFAngle>
+                        </MultiAngle>
+                    </GeometryChoice>
+                </MeasurementSpec>
+            </ColorSpecification>
+            <ColorSpecification Id="spec_unknown">
+                <TristimulusSpec>
+                    <Illuminant>A</Illuminant>
+                    <Observer>2_Degree</Observer>
+                    <Method>unknown</Method>
+                </TristimulusSpec>
+                <MeasurementSpec>
+                    <MeasurementType>Colorimetric_Reflectance</MeasurementType>
+                    <GeometryChoice>
+                        <!-- UnknownGeometry with exactly 1 character minimum -->
+                        <UnknownGeometry>X</UnknownGeometry>
+                    </GeometryChoice>
+                </MeasurementSpec>
+            </ColorSpecification>
+            <ColorSpecification Id="spec_sphere">
+                <TristimulusSpec>
+                    <Illuminant>D65</Illuminant>
+                    <Observer>2_Degree</Observer>
+                    <Method>E308_Table5</Method>
+                </TristimulusSpec>
+                <MeasurementSpec>
+                    <MeasurementType>Spectrum_Reflectance</MeasurementType>
+                    <GeometryChoice>
+                        <SphereGeometry>Specular_Excluded</SphereGeometry>
+                    </GeometryChoice>
+                </MeasurementSpec>
+            </ColorSpecification>
+            <ColorSpecification Id="spec_emissive">
+                <TristimulusSpec>
+                    <Illuminant>E</Illuminant>
+                    <Observer>2_Degree</Observer>
+                    <Method>E308_1nm</Method>
+                </TristimulusSpec>
+                <MeasurementSpec>
+                    <MeasurementType>Colorimetric_Emissive</MeasurementType>
+                    <GeometryChoice>
+                        <EmissiveMode>EmissiveMode_Other</EmissiveMode>
+                    </GeometryChoice>
+                </MeasurementSpec>
+            </ColorSpecification>
+        </ColorSpecificationCollection>
+    </Resources>
+</CxF>

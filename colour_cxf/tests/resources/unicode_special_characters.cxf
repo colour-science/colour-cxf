@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CxF xmlns="http://colorexchangeformat.com/CxF3-core">
+    <FileInformation>
+        <Creator>Unicode and Special Characters Tester</Creator>
+        <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+        <Description>Testing Unicode characters and XML-reserved characters in object names and strings</Description>
+        <Comment>Tests émoji, accented characters, XML entities, and edge cases for string handling</Comment>
+    </FileInformation>
+    <Resources>
+        <ObjectCollection>
+            <Object ObjectType="Standard" Name="Color™ • 漢字 &amp; Ñoño" Id="unicode1">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Object name with trademark symbol, bullet, Chinese characters, ampersand, and Spanish ñ</Comment>
+                <ColorValues>
+                    <ColorCIELab ColorSpecification="spec1">
+                        <L>50.0</L>
+                        <A>0.0</A>
+                        <B>0.0</B>
+                    </ColorCIELab>
+                </ColorValues>
+            </Object>
+            <Object ObjectType="Standard" Name="🎨 Rainbow Colors 🌈" Id="emoji1">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Object name with emoji characters</Comment>
+                <ColorValues>
+                    <ColorCIELab ColorSpecification="spec1">
+                        <L>75.0</L>
+                        <A>25.0</A>
+                        <B>-15.0</B>
+                    </ColorCIELab>
+                </ColorValues>
+            </Object>
+            <Object ObjectType="Standard" Name="Αλφα Βήτα Γάμμα" Id="greek1">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Object name with Greek alphabet characters</Comment>
+                <ColorValues>
+                    <ColorCIELab ColorSpecification="spec1">
+                        <L>25.0</L>
+                        <A>-10.0</A>
+                        <B>5.0</B>
+                    </ColorCIELab>
+                </ColorValues>
+            </Object>
+            <Object ObjectType="Standard" Name="Русский текст" Id="cyrillic1">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Object name with Cyrillic characters</Comment>
+                <ColorValues>
+                    <ColorCIELab ColorSpecification="spec1">
+                        <L>90.0</L>
+                        <A>-5.0</A>
+                        <B>10.0</B>
+                    </ColorCIELab>
+                </ColorValues>
+            </Object>
+            <Object ObjectType="Standard" Name="العربية" Id="arabic1">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Object name with Arabic characters</Comment>
+                <ColorValues>
+                    <ColorCIELab ColorSpecification="spec1">
+                        <L>60.0</L>
+                        <A>30.0</A>
+                        <B>-25.0</B>
+                    </ColorCIELab>
+                </ColorValues>
+            </Object>
+            <Object ObjectType="Standard" Name="&lt;XML&gt; &quot;Quotes&quot; &amp; &apos;Apostrophes&apos;" Id="xmlentities1">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Object name with XML reserved characters properly escaped</Comment>
+                <ColorValues>
+                    <ColorCIELab ColorSpecification="spec1">
+                        <L>40.0</L>
+                        <A>-20.0</A>
+                        <B>35.0</B>
+                    </ColorCIELab>
+                </ColorValues>
+            </Object>
+            <Object ObjectType="Standard" Name="Àccénted Çhàràçtërs ñ ü ß" Id="accented1">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Object name with various accented European characters</Comment>
+                <ColorValues>
+                    <ColorCIELab ColorSpecification="spec1">
+                        <L>80.0</L>
+                        <A>15.0</A>
+                        <B>-40.0</B>
+                    </ColorCIELab>
+                </ColorValues>
+            </Object>
+            <Object ObjectType="Standard" Name="Math: ∫∑∏√±∞≈≠≤≥" Id="math1">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Object name with mathematical symbols</Comment>
+                <ColorValues>
+                    <ColorCIELab ColorSpecification="spec1">
+                        <L>95.0</L>
+                        <A>-2.0</A>
+                        <B>2.0</B>
+                    </ColorCIELab>
+                </ColorValues>
+            </Object>
+            <Object ObjectType="Standard" Name="Currency: $€£¥₹₿" Id="currency1">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Object name with various currency symbols</Comment>
+                <ColorValues>
+                    <ColorCIELab ColorSpecification="spec1">
+                        <L>65.0</L>
+                        <A>20.0</A>
+                        <B>-30.0</B>
+                    </ColorCIELab>
+                </ColorValues>
+            </Object>
+            <Object ObjectType="Standard" Name="Symbols: ☀☂☃❄⚡⭐" Id="symbols1">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Object name with weather and symbol characters</Comment>
+                <ColorValues>
+                    <ColorCIELab ColorSpecification="spec1">
+                        <L>35.0</L>
+                        <A>45.0</A>
+                        <B>-50.0</B>
+                    </ColorCIELab>
+                </ColorValues>
+            </Object>
+            <Object ObjectType="Standard" Name="Zero Width: a&#x200B;b&#x200C;c&#x200D;d" Id="zerowidth1">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Object name with zero-width characters (ZWSP, ZWNJ, ZWJ)</Comment>
+                <ColorValues>
+                    <ColorCIELab ColorSpecification="spec1">
+                        <L>55.0</L>
+                        <A>-35.0</A>
+                        <B>25.0</B>
+                    </ColorCIELab>
+                </ColorValues>
+            </Object>
+            <Object ObjectType="Standard" Name="Control: Tab&#x9;NewLine&#xA;CarriageReturn&#xD;" Id="control1">
+                <CreationDate>2025-08-14T13:01:00Z</CreationDate>
+                <Comment>Object name with control characters</Comment>
+                <ColorValues>
+                    <ColorCIELab ColorSpecification="spec1">
+                        <L>70.0</L>
+                        <A>-15.0</A>
+                        <B>45.0</B>
+                    </ColorCIELab>
+                </ColorValues>
+            </Object>
+        </ObjectCollection>
+        <ColorSpecificationCollection>
+            <ColorSpecification Id="spec1">
+                <TristimulusSpec>
+                    <Illuminant>D65</Illuminant>
+                    <Observer>2_Degree</Observer>
+                    <Method>E308_Table5</Method>
+                </TristimulusSpec>
+                <MeasurementSpec>
+                    <MeasurementType>Colorimetric_Reflectance</MeasurementType>
+                    <GeometryChoice>
+                        <SingleAngle>
+                            <SingleAngleConfiguration>Annular</SingleAngleConfiguration>
+                            <IlluminationAngle>45.0</IlluminationAngle>
+                            <MeasurementAngle>0.0</MeasurementAngle>
+                        </SingleAngle>
+                    </GeometryChoice>
+                </MeasurementSpec>
+            </ColorSpecification>
+        </ColorSpecificationCollection>
+    </Resources>
+</CxF>
