@@ -19,7 +19,7 @@ repos:
     rev: v2.3.0
     hooks:
       - id: codespell
-        args: ["--ignore-words-list=assertIn,co-ordinates,LeapYear,SAV"]
+        args: ["--ignore-words-list=assertIn,co-ordinates,LeapYear,SAV,socio-economic"]
         exclude: "BIBLIOGRAPHY.bib|CONTRIBUTORS.rst|.*\\.ipynb|./colour_cxf/cxf3/.*|CxF3_Core.xsd"
   - repo: https://github.com/PyCQA/isort
     rev: "5.13.2"
