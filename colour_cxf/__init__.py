@@ -20,8 +20,11 @@ __all__ = [
     "write_cxf",
 ]
 
+from io import BytesIO
 from os import PathLike
 
+from lxml import etree
+from xsdata.exceptions import ParserError
 from xsdata.formats.dataclass.context import XmlContext
 from xsdata.formats.dataclass.parsers import XmlParser
 from xsdata.formats.dataclass.serializers import XmlSerializer
@@ -29,7 +32,9 @@ from xsdata.formats.dataclass.serializers import XmlSerializer
 import colour_cxf.cxf3
 
 
-def read_cxf_from_file(source_path: str | PathLike[str]) -> colour_cxf.cxf3.CxF:
+def read_cxf_from_file(
+    source_path: str | PathLike[str], validate_schema: bool = True
+) -> colour_cxf.cxf3.CxF:
     """
     Read a CxF file from a file path.
 
@@ -37,11 +42,18 @@ def read_cxf_from_file(source_path: str | PathLike[str]) -> colour_cxf.cxf3.CxF:
     ----------
     source_path : str or PathLike[str]
         Path to the CxF file to read.
+    validate_schema : bool, optional
+        Whether to validate the schema before parsing the file.
 
     Returns
     -------
     colour_cxf.cxf3.CxF
         CxF object containing the parsed data.
+
+    Raises
+    ------
+    ParserError
+        If the CxF document does not match the CxF schema.
 
     Examples
     --------
@@ -50,10 +62,49 @@ def read_cxf_from_file(source_path: str | PathLike[str]) -> colour_cxf.cxf3.CxF:
     """
     with open(source_path, "rb") as file:
         doc = file.read()
+
+        if validate_schema:
+            _validate_schema(doc)
+
         return read_cxf(doc)
 
 
-def read_cxf(doc: bytes) -> colour_cxf.cxf3.CxF:
+def _validate_schema(doc: bytes) -> None:
+    """
+    Validate the CxF document against the XSD schema.
+
+    Parameters
+    ----------
+    doc : bytes
+        Bytes data containing the CxF XML content.
+
+
+    Raises
+    ------
+    ParserError
+        If the CxF document does not match the CxF schema.
+    """
+    try:
+        parsed_xml = etree.parse(BytesIO(doc))
+    except etree.XMLSyntaxError as e:
+        msg = f"XML is not well-formed: {e}"
+        raise ParserError(msg) from e
+
+    try:
+        with open("CxF3_Core.xsd") as schema_file:
+            xmlschema_doc = etree.parse(schema_file)
+            xmlschema = etree.XMLSchema(xmlschema_doc)
+
+            if not xmlschema.validate(parsed_xml):
+                errors = xmlschema.error_log
+                msg = f"Schema validation failed: {errors}"
+                raise ParserError(msg)
+    except (etree.XMLSyntaxError, etree.XSLTParseError) as e:
+        msg = f"Schema validation error: {e}"
+        raise ParserError(msg) from e
+
+
+def read_cxf(doc: bytes, validate_schema: bool = True) -> colour_cxf.cxf3.CxF:
     """
     Read a CxF object from bytes data.
 
@@ -61,11 +112,18 @@ def read_cxf(doc: bytes) -> colour_cxf.cxf3.CxF:
     ----------
     doc : bytes
         Bytes data containing the CxF XML content.
+    validate_schema : bool, optional
+        Whether to validate the schema before parsing the file.
 
     Returns
     -------
     colour_cxf.cxf3.CxF
         CxF object containing the parsed data.
+
+    Raises
+    ------
+    ParserError
+        If the CxF document does not match the CxF schema.
 
     Examples
     --------
@@ -74,6 +132,10 @@ def read_cxf(doc: bytes) -> colour_cxf.cxf3.CxF:
     ...     data = f.read()
     >>> cxf = colour_cxf.read_cxf(data)  # doctest: +SKIP
     """
+
+    if validate_schema:
+        _validate_schema(doc)
+
     context = XmlContext()
     parser = XmlParser(context=context)
     return parser.from_bytes(doc, colour_cxf.cxf3.CxF)

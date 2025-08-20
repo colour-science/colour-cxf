@@ -63,7 +63,7 @@ class SampleCxfTests(unittest.TestCase, LxmlTestCaseMixin):
         first_obj = objects[0]
         self.assertEqual(first_obj.object_type, "Target")
         self.assertEqual(first_obj.name, "1")
-        self.assertEqual(first_obj.id, "1")
+        self.assertEqual(first_obj.id, "obj1")
         self.assertIsNotNone(first_obj.creation_date)
 
         # Check that objects have color values
