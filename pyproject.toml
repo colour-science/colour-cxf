@@ -44,6 +44,7 @@ classifiers = [
 dependencies = [
     "typing-extensions>=4,<5",
     "xsdata>25.4",
+    "lxml>=4.6.0",
 ]
 
 [project.optional-dependencies]
@@ -73,7 +74,10 @@ dev-dependencies = [
     "toml",
     "twine",
     # Package Specific
-    "lxml-stubs>=0.5.1,<0.6"
+    "lxml-stubs>=0.5.1,<0.6",
+    # Benchmarking
+    "psutil>=5.9.0",
+    "memory-profiler>=0.60.0",
 ]
 
 [build-system]
