@@ -12,6 +12,7 @@ import psutil
 from memory_profiler import profile
 
 import colour_cxf
+from colour_cxf.cxf3.cx_f import CxF
 
 
 def generate_large_cxf_file(num_samples: int) -> bytes:
@@ -131,12 +132,12 @@ def benchmark_parsing_memory_usage(num_samples: int) -> None:
     """Benchmark parsing with memory profiling."""
 
     @profile
-    def parse_cxf_with_validation(data: bytes) -> None:
+    def parse_cxf_with_validation(data: bytes) -> CxF:
         """Parse CxF with schema validation enabled."""
         return colour_cxf.read_cxf(data, validate_schema=True)
 
     @profile
-    def parse_cxf_without_validation(data: bytes) -> None:
+    def parse_cxf_without_validation(data: bytes) -> CxF:
         """Parse CxF with schema validation disabled."""
         return colour_cxf.read_cxf(data, validate_schema=False)
 
@@ -162,7 +163,7 @@ def benchmark_parsing_memory_usage(num_samples: int) -> None:
     print(f"Parsed {len(cxf_obj.resources.object_collection.object_value):,} objects")
 
 
-def benchmark_parsing_performance(num_samples: int) -> None:
+def benchmark_parsing_performance(num_samples: int) -> dict[str, float | int]:
     """Benchmark parsing performance with timing."""
 
     cxf_data = generate_large_cxf_file(num_samples)
