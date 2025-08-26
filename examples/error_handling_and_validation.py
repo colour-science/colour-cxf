@@ -47,9 +47,10 @@ safe_xml = b"""<?xml version="1.0" encoding="UTF-8"?>
 <cc:CxF xmlns:cc="http://colorexchangeformat.com/CxF3-core">
     <cc:Resources>
         <cc:ObjectCollection>
-            <cc:Object ObjectType="Target" Name="SafeTest" Id="1">
+            <cc:Object ObjectType="Target" Name="SafeTest" Id="safetest1">
+                <cc:CreationDate>2024-01-01T00:00:00</cc:CreationDate>
                 <cc:ColorValues>
-                    <cc:ColorSRGB>
+                    <cc:ColorSRGB ColorSpecification="CIE_D65_2_1931">
                         <cc:R>255</cc:R>
                         <cc:G>128</cc:G>
                         <cc:B>0</cc:B>
@@ -57,6 +58,16 @@ safe_xml = b"""<?xml version="1.0" encoding="UTF-8"?>
                 </cc:ColorValues>
             </cc:Object>
         </cc:ObjectCollection>
+        <cc:ColorSpecificationCollection>
+            <cc:ColorSpecification Id="CIE_D65_2_1931">
+                <cc:MeasurementSpec>
+                    <cc:MeasurementType>Spectrum_Reflectance</cc:MeasurementType>
+                    <cc:GeometryChoice>
+                        <cc:SphereGeometry>Specular_Excluded</cc:SphereGeometry>
+                    </cc:GeometryChoice>
+                </cc:MeasurementSpec>
+            </cc:ColorSpecification>
+        </cc:ColorSpecificationCollection>
     </cc:Resources>
 </cc:CxF>"""
 

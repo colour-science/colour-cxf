@@ -6,13 +6,23 @@ This example demonstrates how to work with multiple color objects in a single Cx
 which is a common real-world scenario for color palettes or measurement sets.
 """
 
+from xsdata.models.datatype import XmlDateTime
+
 import colour_cxf
 from colour_cxf.cxf3 import (
     ColorCielab,
+    ColorSpecification,
+    ColorSpecificationCollection,
     ColorSrgb,
     ColorValues,
+    CreationDate,
     CxF,
+    EspectrumType,
+    EsphereType,
     FileInformation,
+    GeometryChoice,
+    MeasurementSpec,
+    MeasurementType,
     Object,
     ObjectCollection,
     ReflectanceSpectrum,
@@ -31,6 +41,16 @@ cxf.file_information = FileInformation(
 cxf.resources = Resources()
 cxf.resources.object_collection = ObjectCollection()
 
+# Create ColorSpecificationCollection
+measurement_spec = MeasurementSpec(
+    measurement_type=MeasurementType(value=EspectrumType.SPECTRUM_REFLECTANCE),
+    geometry_choice=GeometryChoice(choice=EsphereType.SPECULAR_EXCLUDED),
+)
+color_spec = ColorSpecification(id="CIE_D65_2_1931", measurement_spec=measurement_spec)
+cxf.resources.color_specification_collection = ColorSpecificationCollection(
+    [color_spec]
+)
+
 # Create multiple color objects representing a palette
 colors = [
     {"name": "Red", "rgb": (255, 0, 0), "lab": (53.24, 80.09, 67.20)},
@@ -42,22 +62,33 @@ colors = [
 
 # Add each color as a separate object
 for i, color_data in enumerate(colors, 1):
-    color_obj = Object(object_type="Target", name=color_data["name"], id=str(i))
+    color_obj = Object(
+        object_type="Target",
+        name=color_data["name"],
+        id=f"{color_data['name'].lower()}{i}",
+    )
+    color_obj.creation_date = CreationDate(value=XmlDateTime(2024, 1, 1, 0, 0, 0))
     color_obj.color_values = ColorValues()
 
     # Add RGB values
     rgb = color_data["rgb"]
-    color_obj.color_values.choice.append(ColorSrgb(r=rgb[0], g=rgb[1], b=rgb[2]))
+    color_obj.color_values.choice.append(
+        ColorSrgb(r=rgb[0], g=rgb[1], b=rgb[2], color_specification="CIE_D65_2_1931")
+    )
 
     # Add CIELab values
     lab = color_data["lab"]
-    color_obj.color_values.choice.append(ColorCielab(l=lab[0], a=lab[1], b=lab[2]))
+    color_obj.color_values.choice.append(
+        ColorCielab(l=lab[0], a=lab[1], b=lab[2], color_specification="CIE_D65_2_1931")
+    )
 
     # Add a simple spectral representation (for demonstration)
     # In real scenarios, this would be measured spectral data
     spectral_values = [0.1 + (i * 0.05) % 0.8 for _ in range(21)]
     color_obj.color_values.choice.append(
-        ReflectanceSpectrum(start_wl=400, value=spectral_values)
+        ReflectanceSpectrum(
+            start_wl=400, value=spectral_values, color_specification="CIE_D65_2_1931"
+        )
     )
 
     cxf.resources.object_collection.object_value.append(color_obj)

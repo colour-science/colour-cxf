@@ -5,10 +5,20 @@ Working with Spectral Data
 This example demonstrates how to work with reflectance spectra in CxF files.
 """
 
+from xsdata.models.datatype import XmlDateTime
+
 import colour_cxf
 from colour_cxf.cxf3 import (
+    ColorSpecification,
+    ColorSpecificationCollection,
     ColorValues,
+    CreationDate,
     CxF,
+    EspectrumType,
+    EsphereType,
+    GeometryChoice,
+    MeasurementSpec,
+    MeasurementType,
     Object,
     ObjectCollection,
     ReflectanceSpectrum,
@@ -20,14 +30,25 @@ xml_string = """<?xml version="1.0" encoding="UTF-8"?>
 <cc:CxF xmlns:cc="http://colorexchangeformat.com/CxF3-core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <cc:Resources>
         <cc:ObjectCollection>
-            <cc:Object ObjectType="Target" Name="Sample" Id="1">
+            <cc:Object ObjectType="Target" Name="Sample" Id="sample1">
+                <cc:CreationDate>2024-01-01T00:00:00</cc:CreationDate>
                 <cc:ColorValues>
-                    <cc:ReflectanceSpectrum StartWL="400">
+                    <cc:ReflectanceSpectrum StartWL="400" ColorSpecification="CIE_D65_2_1931">
                         0.05 0.06 0.07 0.08 0.10 0.12 0.15 0.20 0.30 0.40 0.50 0.60 0.70 0.80 0.85 0.90 0.92 0.94 0.95 0.96 0.97
                     </cc:ReflectanceSpectrum>
                 </cc:ColorValues>
             </cc:Object>
         </cc:ObjectCollection>
+        <cc:ColorSpecificationCollection>
+            <cc:ColorSpecification Id="CIE_D65_2_1931">
+                <cc:MeasurementSpec>
+                    <cc:MeasurementType>Spectrum_Reflectance</cc:MeasurementType>
+                    <cc:GeometryChoice>
+                        <cc:SphereGeometry>Specular_Excluded</cc:SphereGeometry>
+                    </cc:GeometryChoice>
+                </cc:MeasurementSpec>
+            </cc:ColorSpecification>
+        </cc:ColorSpecificationCollection>
     </cc:Resources>
 </cc:CxF>"""  # noqa: E501
 
@@ -61,7 +82,18 @@ new_cxf = CxF()
 new_cxf.resources = Resources()
 new_cxf.resources.object_collection = ObjectCollection()
 
-color_obj = Object(object_type="Target", name="Sample", id="1")
+# Create ColorSpecificationCollection
+measurement_spec = MeasurementSpec(
+    measurement_type=MeasurementType(value=EspectrumType.SPECTRUM_REFLECTANCE),
+    geometry_choice=GeometryChoice(choice=EsphereType.SPECULAR_EXCLUDED),
+)
+color_spec = ColorSpecification(id="CIE_D65_2_1931", measurement_spec=measurement_spec)
+new_cxf.resources.color_specification_collection = ColorSpecificationCollection(
+    [color_spec]
+)
+
+color_obj = Object(object_type="Target", name="Sample", id="sample1")
+color_obj.creation_date = CreationDate(value=XmlDateTime(2024, 1, 1, 0, 0, 0))
 
 # Create a simple linear ramp spectrum from 0.05 to 0.97
 # (21 values to match the original)
@@ -69,7 +101,9 @@ spectral_values = [0.05 + i * 0.044 for i in range(21)]
 
 color_obj.color_values = ColorValues()
 color_obj.color_values.choice.append(
-    ReflectanceSpectrum(start_wl=400, value=spectral_values)
+    ReflectanceSpectrum(
+        start_wl=400, value=spectral_values, color_specification="CIE_D65_2_1931"
+    )
 )
 
 new_cxf.resources.object_collection.object_value.append(color_obj)

@@ -6,12 +6,22 @@ This example demonstrates how to work with multiple color representations for th
 same object in CxF files.
 """
 
+from xsdata.models.datatype import XmlDateTime
+
 import colour_cxf
 from colour_cxf.cxf3 import (
     ColorCielab,
+    ColorSpecification,
+    ColorSpecificationCollection,
     ColorSrgb,
     ColorValues,
+    CreationDate,
     CxF,
+    EspectrumType,
+    EsphereType,
+    GeometryChoice,
+    MeasurementSpec,
+    MeasurementType,
     Object,
     ObjectCollection,
     ReflectanceSpectrum,
@@ -23,20 +33,37 @@ cxf = CxF()
 cxf.resources = Resources()
 cxf.resources.object_collection = ObjectCollection()
 
+# Create ColorSpecificationCollection
+measurement_spec = MeasurementSpec(
+    measurement_type=MeasurementType(value=EspectrumType.SPECTRUM_REFLECTANCE),
+    geometry_choice=GeometryChoice(choice=EsphereType.SPECULAR_EXCLUDED),
+)
+color_spec = ColorSpecification(id="CIE_D65_2_1931", measurement_spec=measurement_spec)
+cxf.resources.color_specification_collection = ColorSpecificationCollection(
+    [color_spec]
+)
+
 # Create a color object with RGB, CIELab, and spectral values
-color_obj = Object(object_type="Target", name="Purple", id="1")
+color_obj = Object(object_type="Target", name="Purple", id="purple1")
+color_obj.creation_date = CreationDate(value=XmlDateTime(2024, 1, 1, 0, 0, 0))
 
 color_obj.color_values = ColorValues()
 
 # Add RGB values
-color_obj.color_values.choice.append(ColorSrgb(r=128, g=0, b=128))
+color_obj.color_values.choice.append(
+    ColorSrgb(r=128, g=0, b=128, color_specification="CIE_D65_2_1931")
+)
 
 # Add CIELab values
-color_obj.color_values.choice.append(ColorCielab(l=30.0, a=58.0, b=-36.0))
+color_obj.color_values.choice.append(
+    ColorCielab(l=30.0, a=58.0, b=-36.0, color_specification="CIE_D65_2_1931")
+)
 
 # Add spectral values (a simple example spectrum)
 spectral_values = [0.1 + (i % 5) * 0.05 for i in range(21)]
-color_obj.color_values.choice.append(ReflectanceSpectrum(value=spectral_values))
+color_obj.color_values.choice.append(
+    ReflectanceSpectrum(value=spectral_values, color_specification="CIE_D65_2_1931")
+)
 
 cxf.resources.object_collection.object_value.append(color_obj)
 

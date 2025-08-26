@@ -5,11 +5,21 @@ Working with CIELab Colors
 This example demonstrates how to work with CIELab color values in CxF files.
 """
 
+from xsdata.models.datatype import XmlDateTime
+
 import colour_cxf
 from colour_cxf.cxf3 import (
     ColorCielab,
+    ColorSpecification,
+    ColorSpecificationCollection,
     ColorValues,
+    CreationDate,
     CxF,
+    EspectrumType,
+    EsphereType,
+    GeometryChoice,
+    MeasurementSpec,
+    MeasurementType,
     Object,
     ObjectCollection,
     Resources,
@@ -20,9 +30,10 @@ xml_string = """<?xml version="1.0" encoding="UTF-8"?>
 <cc:CxF xmlns:cc="http://colorexchangeformat.com/CxF3-core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <cc:Resources>
         <cc:ObjectCollection>
-            <cc:Object ObjectType="Target" Name="Sample" Id="1">
+            <cc:Object ObjectType="Target" Name="Sample" Id="sample1">
+                <cc:CreationDate>2024-01-01T00:00:00</cc:CreationDate>
                 <cc:ColorValues>
-                    <cc:ColorCIELab>
+                    <cc:ColorCIELab ColorSpecification="CIE_D65_2_1931">
                         <cc:L>50.0</cc:L>
                         <cc:A>20.0</cc:A>
                         <cc:B>30.0</cc:B>
@@ -30,6 +41,16 @@ xml_string = """<?xml version="1.0" encoding="UTF-8"?>
                 </cc:ColorValues>
             </cc:Object>
         </cc:ObjectCollection>
+        <cc:ColorSpecificationCollection>
+            <cc:ColorSpecification Id="CIE_D65_2_1931">
+                <cc:MeasurementSpec>
+                    <cc:MeasurementType>Spectrum_Reflectance</cc:MeasurementType>
+                    <cc:GeometryChoice>
+                        <cc:SphereGeometry>Specular_Excluded</cc:SphereGeometry>
+                    </cc:GeometryChoice>
+                </cc:MeasurementSpec>
+            </cc:ColorSpecification>
+        </cc:ColorSpecificationCollection>
     </cc:Resources>
 </cc:CxF>"""
 
@@ -57,10 +78,23 @@ new_cxf = CxF()
 new_cxf.resources = Resources()
 new_cxf.resources.object_collection = ObjectCollection()
 
-color_obj = Object(object_type="Target", name="Red", id="1")
+# Create ColorSpecificationCollection
+measurement_spec = MeasurementSpec(
+    measurement_type=MeasurementType(value=EspectrumType.SPECTRUM_REFLECTANCE),
+    geometry_choice=GeometryChoice(choice=EsphereType.SPECULAR_EXCLUDED),
+)
+color_spec = ColorSpecification(id="CIE_D65_2_1931", measurement_spec=measurement_spec)
+new_cxf.resources.color_specification_collection = ColorSpecificationCollection(
+    [color_spec]
+)
+
+color_obj = Object(object_type="Target", name="Red", id="red1")
+color_obj.creation_date = CreationDate(value=XmlDateTime(2024, 1, 1, 0, 0, 0))
 
 color_obj.color_values = ColorValues()
-color_obj.color_values.choice.append(ColorCielab(l=50.0, a=60.0, b=30.0))
+color_obj.color_values.choice.append(
+    ColorCielab(l=50.0, a=60.0, b=30.0, color_specification="CIE_D65_2_1931")
+)
 
 new_cxf.resources.object_collection.object_value.append(color_obj)
 
