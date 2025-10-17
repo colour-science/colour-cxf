@@ -8,6 +8,7 @@ uv.lock
 .jj/
 
 # Common Directories
+.claude/
 .fleet/
 .idea/
 .ipynb_checkpoints/
