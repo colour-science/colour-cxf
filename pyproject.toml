@@ -60,7 +60,9 @@ docs = [
 
 [tool.uv]
 package = true
-dev-dependencies = [
+
+[dependency-groups]
+dev = [
     "coverage",
     "coveralls",
     "hatch",
