@@ -48,7 +48,7 @@ __all__ = [
     "clean",
     "formatting",
     "quality",
-    "precommit",
+    "prek",
     "tests",
     "examples",
     "preflight",
@@ -270,9 +270,9 @@ def quality(
 
 
 @task
-def precommit(ctx: Context) -> None:
+def prek(ctx: Context) -> None:
     """
-    Run the "pre-commit" hooks on the codebase.
+    Run the "prek" hooks on the codebase.
 
     Parameters
     ----------
@@ -280,8 +280,8 @@ def precommit(ctx: Context) -> None:
         Context.
     """
 
-    message_box('Running "pre-commit" hooks on the codebase...')
-    ctx.run("pre-commit run --all-files")
+    message_box('Running "prek" hooks on the codebase...')
+    ctx.run("prek run --all-files")
 
 
 @task
@@ -329,7 +329,7 @@ def examples(ctx: Context) -> None:
             ctx.run(f"python {os.path.join(root, filename)}")
 
 
-@task(formatting, quality, precommit, tests, examples)
+@task(formatting, quality, prek, tests, examples)
 def preflight(ctx: Context) -> None:  # noqa: ARG001
     """
     Perform the preflight tasks.
