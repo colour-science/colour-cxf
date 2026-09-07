@@ -21,13 +21,13 @@ class DecmcType:
     class Meta:
         name = "DEcmcType"
 
-    value: None | float = field(
+    value: float | None = field(
         default=None,
         metadata={
             "required": True,
         },
     )
-    lratio: None | float = field(
+    lratio: float | None = field(
         default=None,
         metadata={
             "name": "LRatio",

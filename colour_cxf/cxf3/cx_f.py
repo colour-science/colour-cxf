@@ -24,21 +24,21 @@ class CxF:
     class Meta:
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    file_information: None | FileInformation = field(
+    file_information: FileInformation | None = field(
         default=None,
         metadata={
             "name": "FileInformation",
             "type": "Element",
         },
     )
-    resources: None | Resources = field(
+    resources: Resources | None = field(
         default=None,
         metadata={
             "name": "Resources",
             "type": "Element",
         },
     )
-    custom_resources: None | CustomResources = field(
+    custom_resources: CustomResources | None = field(
         default=None,
         metadata={
             "name": "CustomResources",

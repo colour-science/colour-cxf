@@ -27,7 +27,7 @@ class ColorRecipe:
     class Meta:
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    creation_date: None | CreationDate = field(
+    creation_date: CreationDate | None = field(
         default=None,
         metadata={
             "name": "CreationDate",
@@ -42,14 +42,14 @@ class ColorRecipe:
             "type": "Element",
         },
     )
-    substrate: None | Substrate = field(
+    substrate: Substrate | None = field(
         default=None,
         metadata={
             "name": "Substrate",
             "type": "Element",
         },
     )
-    process: None | Process = field(
+    process: Process | None = field(
         default=None,
         metadata={
             "name": "Process",
@@ -64,7 +64,7 @@ class ColorRecipe:
             "min_occurs": 1,
         },
     )
-    units: None | str = field(
+    units: str | None = field(
         default=None,
         metadata={
             "name": "Units",
@@ -72,7 +72,7 @@ class ColorRecipe:
             "required": True,
         },
     )
-    name: None | str = field(
+    name: str | None = field(
         default=None,
         metadata={
             "name": "Name",
@@ -80,14 +80,14 @@ class ColorRecipe:
             "required": True,
         },
     )
-    comments: None | str = field(
+    comments: str | None = field(
         default=None,
         metadata={
             "name": "Comments",
             "type": "Attribute",
         },
     )
-    color_specification: None | str = field(
+    color_specification: str | None = field(
         default=None,
         metadata={
             "name": "ColorSpecification",

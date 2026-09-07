@@ -18,13 +18,13 @@ class CustomDeltaType:
     difference values.
     """
 
-    value: None | float = field(
+    value: float | None = field(
         default=None,
         metadata={
             "required": True,
         },
     )
-    label: None | str = field(
+    label: str | None = field(
         default=None,
         metadata={
             "name": "Label",

@@ -123,7 +123,7 @@ def generate_large_cxf_file(num_samples: int) -> bytes:
     xml_bytes = xml_content.encode("utf-8")
 
     print(
-        f"Generated CxF file: {len(xml_bytes):,} bytes ({len(xml_bytes)/1024/1024:.1f} MB)"
+        f"Generated CxF file: {len(xml_bytes):,} bytes ({len(xml_bytes) / 1024 / 1024:.1f} MB)"
     )
     return xml_bytes
 
@@ -177,8 +177,8 @@ def benchmark_parsing_performance(num_samples: int) -> dict[str, float | int]:
     cpu_count = psutil.cpu_count()
     memory_info = psutil.virtual_memory()
 
-    print(f"System: {cpu_count} CPU cores, {memory_info.total/1024**3:.1f} GB RAM")
-    print(f"File size: {len(cxf_data):,} bytes ({len(cxf_data)/1024/1024:.1f} MB)")
+    print(f"System: {cpu_count} CPU cores, {memory_info.total / 1024**3:.1f} GB RAM")
+    print(f"File size: {len(cxf_data):,} bytes ({len(cxf_data) / 1024 / 1024:.1f} MB)")
 
     # Benchmark 1: Parsing with schema validation
     print("\n1. Parsing with schema validation...")
@@ -203,7 +203,7 @@ def benchmark_parsing_performance(num_samples: int) -> dict[str, float | int]:
         f"   Objects parsed: {len(cxf_obj.resources.object_collection.object_value):,}"
     )
     print(
-        f"   Throughput: {len(cxf_obj.resources.object_collection.object_value)/parse_time_with_validation:.0f} objects/second"
+        f"   Throughput: {len(cxf_obj.resources.object_collection.object_value) / parse_time_with_validation:.0f} objects/second"
     )
 
     # Clear memory
@@ -232,7 +232,7 @@ def benchmark_parsing_performance(num_samples: int) -> dict[str, float | int]:
         f"   Objects parsed: {len(cxf_obj.resources.object_collection.object_value):,}"
     )
     print(
-        f"   Throughput: {len(cxf_obj.resources.object_collection.object_value)/parse_time_without_validation:.0f} objects/second"
+        f"   Throughput: {len(cxf_obj.resources.object_collection.object_value) / parse_time_without_validation:.0f} objects/second"
     )
 
     # Performance comparison
@@ -243,10 +243,10 @@ def benchmark_parsing_performance(num_samples: int) -> dict[str, float | int]:
     )
     print(f"   Speedup without validation: {speedup:.2f}x")
     print(
-        f"   Data throughput (with validation): {len(cxf_data)/1024/1024/parse_time_with_validation:.1f} MB/second"
+        f"   Data throughput (with validation): {len(cxf_data) / 1024 / 1024 / parse_time_with_validation:.1f} MB/second"
     )
     print(
-        f"   Data throughput (without validation): {len(cxf_data)/1024/1024/parse_time_without_validation:.1f} MB/second"
+        f"   Data throughput (without validation): {len(cxf_data) / 1024 / 1024 / parse_time_without_validation:.1f} MB/second"
     )
 
     return {
