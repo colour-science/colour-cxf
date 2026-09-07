@@ -25,14 +25,14 @@ class ProfileTypeProfileChoiceProfileFile:
     class Meta:
         global_type = False
 
-    value: None | bytes = field(
+    value: bytes | None = field(
         default=None,
         metadata={
             "required": True,
             "format": "base64",
         },
     )
-    profile_name: None | str = field(
+    profile_name: str | None = field(
         default=None,
         metadata={
             "name": "ProfileName",

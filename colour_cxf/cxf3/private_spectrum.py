@@ -35,21 +35,21 @@ class PrivateSpectrum:
     class Meta:
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    value: None | bytes = field(
+    value: bytes | None = field(
         default=None,
         metadata={
             "required": True,
             "format": "base64",
         },
     )
-    name: None | str = field(
+    name: str | None = field(
         default=None,
         metadata={
             "name": "Name",
             "type": "Attribute",
         },
     )
-    key_id: None | str = field(
+    key_id: str | None = field(
         default=None,
         metadata={
             "name": "KeyID",
@@ -57,14 +57,14 @@ class PrivateSpectrum:
             "required": True,
         },
     )
-    measure_date: None | XmlDateTime = field(
+    measure_date: XmlDateTime | None = field(
         default=None,
         metadata={
             "name": "MeasureDate",
             "type": "Attribute",
         },
     )
-    start_wl: None | int = field(
+    start_wl: int | None = field(
         default=None,
         metadata={
             "name": "StartWL",
@@ -73,7 +73,7 @@ class PrivateSpectrum:
             "max_inclusive": 400,
         },
     )
-    color_specification: None | str = field(
+    color_specification: str | None = field(
         default=None,
         metadata={
             "name": "ColorSpecification",

@@ -22,13 +22,13 @@ class TargetType:
     class Meta:
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    value: None | EtargetType = field(
+    value: EtargetType | None = field(
         default=None,
         metadata={
             "required": True,
         },
     )
-    other_type: None | str = field(
+    other_type: str | None = field(
         default=None,
         metadata={
             "name": "OtherType",

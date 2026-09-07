@@ -22,13 +22,13 @@ class CustomAttributeValue:
     class Meta:
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    value: None | float = field(
+    value: float | None = field(
         default=None,
         metadata={
             "required": True,
         },
     )
-    label: None | str = field(
+    label: str | None = field(
         default=None,
         metadata={
             "name": "Label",
@@ -36,7 +36,7 @@ class CustomAttributeValue:
             "required": True,
         },
     )
-    method: None | str = field(
+    method: str | None = field(
         default=None,
         metadata={
             "name": "Method",

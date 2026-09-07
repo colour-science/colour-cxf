@@ -23,7 +23,7 @@ class Brdfangle:
         name = "BRDFAngle"
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    illumination_angle: None | float = field(
+    illumination_angle: float | None = field(
         default=None,
         metadata={
             "name": "IlluminationAngle",
@@ -31,7 +31,7 @@ class Brdfangle:
             "required": True,
         },
     )
-    aspecular: None | float = field(
+    aspecular: float | None = field(
         default=None,
         metadata={
             "name": "Aspecular",
@@ -39,14 +39,14 @@ class Brdfangle:
             "required": True,
         },
     )
-    azimuth: None | float = field(
+    azimuth: float | None = field(
         default=None,
         metadata={
             "name": "Azimuth",
             "type": "Element",
         },
     )
-    notation: None | str = field(
+    notation: str | None = field(
         default=None,
         metadata={
             "name": "Notation",

@@ -39,21 +39,21 @@ class TransmittanceSpectrum:
             "tokens": True,
         },
     )
-    name: None | str = field(
+    name: str | None = field(
         default=None,
         metadata={
             "name": "Name",
             "type": "Attribute",
         },
     )
-    measure_date: None | XmlDateTime = field(
+    measure_date: XmlDateTime | None = field(
         default=None,
         metadata={
             "name": "MeasureDate",
             "type": "Attribute",
         },
     )
-    start_wl: None | int = field(
+    start_wl: int | None = field(
         default=None,
         metadata={
             "name": "StartWL",
@@ -62,7 +62,7 @@ class TransmittanceSpectrum:
             "max_inclusive": 400,
         },
     )
-    color_specification: None | str = field(
+    color_specification: str | None = field(
         default=None,
         metadata={
             "name": "ColorSpecification",
