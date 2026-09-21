@@ -22,7 +22,7 @@ class DeviceClass:
     class Meta:
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    value: None | EdeviceClassType = field(
+    value: EdeviceClassType | None = field(
         default=None,
         metadata={
             "required": True,

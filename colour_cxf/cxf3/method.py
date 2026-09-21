@@ -23,7 +23,7 @@ class Method:
     class Meta:
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    value: None | EastmTableType = field(
+    value: EastmTableType | None = field(
         default=None,
         metadata={
             "required": True,

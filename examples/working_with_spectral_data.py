@@ -72,7 +72,7 @@ if (
                 print(f"Number of spectral values: {len(spectrum.value)}")
                 print(
                     f"""First few spectral values: {
-                    ' '.join(map(str,spectrum.value[:5]))
+                        " ".join(map(str, spectrum.value[:5]))
                     }..."""
                 )
 
@@ -135,6 +135,6 @@ if (
                 print(f"Number of spectral values: {len(spectrum.value)}")
                 print(
                     f"""First few spectral values: {
-                    ' '.join(map(str,spectrum.value[:5]))
+                        " ".join(map(str, spectrum.value[:5]))
                     }..."""
                 )

@@ -25,7 +25,7 @@ class SingleAngleConfiguration:
     class Meta:
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    value: None | EsingleAngleConfigurationType = field(
+    value: EsingleAngleConfigurationType | None = field(
         default=None,
         metadata={
             "required": True,

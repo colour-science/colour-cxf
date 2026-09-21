@@ -20,7 +20,7 @@ class Tag:
     class Meta:
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    name: None | str = field(
+    name: str | None = field(
         default=None,
         metadata={
             "name": "Name",
@@ -28,7 +28,7 @@ class Tag:
             "required": True,
         },
     )
-    value: None | str = field(
+    value: str | None = field(
         default=None,
         metadata={
             "name": "Value",

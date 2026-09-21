@@ -36,7 +36,7 @@ class ProfileType:
     direction
     """
 
-    profile_choice: None | ProfileTypeProfileChoice = field(
+    profile_choice: ProfileTypeProfileChoice | None = field(
         default=None,
         metadata={
             "name": "ProfileChoice",
@@ -53,7 +53,7 @@ class ProfileType:
             "namespace": "http://colorexchangeformat.com/CxF3-core",
         },
     )
-    created: None | XmlDateTime = field(
+    created: XmlDateTime | None = field(
         default=None,
         metadata={
             "name": "Created",
@@ -61,7 +61,7 @@ class ProfileType:
             "namespace": "http://colorexchangeformat.com/CxF3-core",
         },
     )
-    id: None | str = field(
+    id: str | None = field(
         default=None,
         metadata={
             "name": "Id",
@@ -69,7 +69,7 @@ class ProfileType:
             "required": True,
         },
     )
-    direction: None | ProfileTypeDirection = field(
+    direction: ProfileTypeDirection | None = field(
         default=None,
         metadata={
             "name": "Direction",

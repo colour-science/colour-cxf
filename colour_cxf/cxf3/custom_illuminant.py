@@ -38,21 +38,21 @@ class CustomIlluminant:
             "type": "Element",
         },
     )
-    name: None | str = field(
+    name: str | None = field(
         default=None,
         metadata={
             "name": "Name",
             "type": "Attribute",
         },
     )
-    wlstart: None | int = field(
+    wlstart: int | None = field(
         default=None,
         metadata={
             "name": "WLStart",
             "type": "Attribute",
         },
     )
-    list_increment: None | int = field(
+    list_increment: int | None = field(
         default=None,
         metadata={
             "name": "List_Increment",

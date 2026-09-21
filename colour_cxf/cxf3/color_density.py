@@ -26,7 +26,7 @@ class ColorDensity:
     class Meta:
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    density: None | float = field(
+    density: float | None = field(
         default=None,
         metadata={
             "name": "Density",
@@ -34,7 +34,7 @@ class ColorDensity:
             "required": True,
         },
     )
-    status: None | EdensityStatusType = field(
+    status: EdensityStatusType | None = field(
         default=None,
         metadata={
             "name": "Status",
@@ -42,7 +42,7 @@ class ColorDensity:
             "required": True,
         },
     )
-    filter: None | EdensityFilterType = field(
+    filter: EdensityFilterType | None = field(
         default=None,
         metadata={
             "name": "Filter",
@@ -50,21 +50,21 @@ class ColorDensity:
             "required": True,
         },
     )
-    base_offset: None | float = field(
+    base_offset: float | None = field(
         default=None,
         metadata={
             "name": "BaseOffset",
             "type": "Element",
         },
     )
-    name: None | str = field(
+    name: str | None = field(
         default=None,
         metadata={
             "name": "Name",
             "type": "Attribute",
         },
     )
-    color_specification: None | str = field(
+    color_specification: str | None = field(
         default=None,
         metadata={
             "name": "ColorSpecification",
