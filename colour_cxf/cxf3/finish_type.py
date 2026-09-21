@@ -22,13 +22,13 @@ class FinishType:
     class Meta:
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    value: None | EfinishType = field(
+    value: EfinishType | None = field(
         default=None,
         metadata={
             "required": True,
         },
     )
-    other_type: None | str = field(
+    other_type: str | None = field(
         default=None,
         metadata={
             "name": "OtherType",

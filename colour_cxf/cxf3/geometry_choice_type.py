@@ -24,7 +24,7 @@ class GeometryChoiceType:
     """
 
     choice: (
-        None | EemissiveModeType | EsphereType | SingleAngleType | str | MultiAngleType
+        EemissiveModeType | EsphereType | SingleAngleType | str | MultiAngleType | None
     ) = field(
         default=None,
         metadata={

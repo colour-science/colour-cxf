@@ -35,28 +35,28 @@ class FileInformation:
     class Meta:
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    creator: None | str = field(
+    creator: str | None = field(
         default=None,
         metadata={
             "name": "Creator",
             "type": "Element",
         },
     )
-    creation_date: None | CreationDate = field(
+    creation_date: CreationDate | None = field(
         default=None,
         metadata={
             "name": "CreationDate",
             "type": "Element",
         },
     )
-    description: None | str = field(
+    description: str | None = field(
         default=None,
         metadata={
             "name": "Description",
             "type": "Element",
         },
     )
-    comment: None | str = field(
+    comment: str | None = field(
         default=None,
         metadata={
             "name": "Comment",

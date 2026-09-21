@@ -24,7 +24,7 @@ class LuminanceUnitsType:
     class Meta:
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    value: None | EluminanceUnits = field(
+    value: EluminanceUnits | None = field(
         default=None,
         metadata={
             "required": True,

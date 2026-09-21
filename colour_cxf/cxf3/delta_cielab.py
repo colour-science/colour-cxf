@@ -25,77 +25,77 @@ class DeltaCielab:
         name = "DeltaCIELab"
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    d_l: None | float = field(
+    d_l: float | None = field(
         default=None,
         metadata={
             "name": "dL",
             "type": "Element",
         },
     )
-    d_a: None | float = field(
+    d_a: float | None = field(
         default=None,
         metadata={
             "name": "dA",
             "type": "Element",
         },
     )
-    d_b: None | float = field(
+    d_b: float | None = field(
         default=None,
         metadata={
             "name": "dB",
             "type": "Element",
         },
     )
-    d_c: None | float = field(
+    d_c: float | None = field(
         default=None,
         metadata={
             "name": "dC",
             "type": "Element",
         },
     )
-    d_h: None | float = field(
+    d_h: float | None = field(
         default=None,
         metadata={
             "name": "dH",
             "type": "Element",
         },
     )
-    d_e: None | float = field(
+    d_e: float | None = field(
         default=None,
         metadata={
             "name": "dE",
             "type": "Element",
         },
     )
-    d_ecmc: None | DecmcType = field(
+    d_ecmc: DecmcType | None = field(
         default=None,
         metadata={
             "name": "dEcmc",
             "type": "Element",
         },
     )
-    d_e94: None | De94Type = field(
+    d_e94: De94Type | None = field(
         default=None,
         metadata={
             "name": "dE94",
             "type": "Element",
         },
     )
-    d_e2000: None | De2000Type = field(
+    d_e2000: De2000Type | None = field(
         default=None,
         metadata={
             "name": "dE2000",
             "type": "Element",
         },
     )
-    name: None | str = field(
+    name: str | None = field(
         default=None,
         metadata={
             "name": "Name",
             "type": "Attribute",
         },
     )
-    color_specification: None | str = field(
+    color_specification: str | None = field(
         default=None,
         metadata={
             "name": "ColorSpecification",
@@ -103,7 +103,7 @@ class DeltaCielab:
             "required": True,
         },
     )
-    standard_ref: None | str = field(
+    standard_ref: str | None = field(
         default=None,
         metadata={
             "name": "StandardRef",

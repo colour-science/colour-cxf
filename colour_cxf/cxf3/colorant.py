@@ -22,14 +22,14 @@ class Colorant:
     class Meta:
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    part_number: None | str = field(
+    part_number: str | None = field(
         default=None,
         metadata={
             "name": "PartNumber",
             "type": "Element",
         },
     )
-    density: None | float = field(
+    density: float | None = field(
         default=None,
         metadata={
             "name": "Density",
@@ -37,7 +37,7 @@ class Colorant:
             "nillable": True,
         },
     )
-    value: None | float = field(
+    value: float | None = field(
         default=None,
         metadata={
             "name": "Value",
@@ -45,7 +45,7 @@ class Colorant:
             "required": True,
         },
     )
-    name: None | str = field(
+    name: str | None = field(
         default=None,
         metadata={
             "name": "Name",
@@ -53,14 +53,14 @@ class Colorant:
             "required": True,
         },
     )
-    id: None | str = field(
+    id: str | None = field(
         default=None,
         metadata={
             "name": "ID",
             "type": "Attribute",
         },
     )
-    is_base: None | bool = field(
+    is_base: bool | None = field(
         default=None,
         metadata={
             "name": "isBase",

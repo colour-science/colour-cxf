@@ -35,56 +35,56 @@ class PhysicalAttributes:
     class Meta:
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    target_type: None | TargetType = field(
+    target_type: TargetType | None = field(
         default=None,
         metadata={
             "name": "TargetType",
             "type": "Element",
         },
     )
-    finish_type: None | FinishType = field(
+    finish_type: FinishType | None = field(
         default=None,
         metadata={
             "name": "FinishType",
             "type": "Element",
         },
     )
-    substrate_type: None | SubstrateType = field(
+    substrate_type: SubstrateType | None = field(
         default=None,
         metadata={
             "name": "SubstrateType",
             "type": "Element",
         },
     )
-    quantity: None | Quantity = field(
+    quantity: Quantity | None = field(
         default=None,
         metadata={
             "name": "Quantity",
             "type": "Element",
         },
     )
-    height: None | Height = field(
+    height: Height | None = field(
         default=None,
         metadata={
             "name": "Height",
             "type": "Element",
         },
     )
-    width: None | Width = field(
+    width: Width | None = field(
         default=None,
         metadata={
             "name": "Width",
             "type": "Element",
         },
     )
-    length: None | Length = field(
+    length: Length | None = field(
         default=None,
         metadata={
             "name": "Length",
             "type": "Element",
         },
     )
-    thickness: None | Thickness = field(
+    thickness: Thickness | None = field(
         default=None,
         metadata={
             "name": "Thickness",

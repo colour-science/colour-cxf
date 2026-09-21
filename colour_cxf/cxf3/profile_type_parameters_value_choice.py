@@ -16,7 +16,7 @@ class ProfileTypeParametersValueChoice:
     class Meta:
         global_type = False
 
-    double_value_or_integer_value_or_string_value: None | float | int | str = field(
+    double_value_or_integer_value_or_string_value: float | int | str | None = field(
         default=None,
         metadata={
             "type": "Elements",

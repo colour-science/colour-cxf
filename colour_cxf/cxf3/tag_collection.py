@@ -31,7 +31,7 @@ class TagCollection:
             "type": "Element",
         },
     )
-    name: None | str = field(
+    name: str | None = field(
         default=None,
         metadata={
             "name": "Name",
