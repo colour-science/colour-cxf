@@ -23,7 +23,7 @@ class ColorHsl:
         name = "ColorHSL"
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    hue: None | float = field(
+    hue: float | None = field(
         default=None,
         metadata={
             "name": "Hue",
@@ -33,7 +33,7 @@ class ColorHsl:
             "max_inclusive": 360.0,
         },
     )
-    saturation: None | float = field(
+    saturation: float | None = field(
         default=None,
         metadata={
             "name": "Saturation",
@@ -42,7 +42,7 @@ class ColorHsl:
             "min_inclusive": 0.0,
         },
     )
-    lightness: None | float = field(
+    lightness: float | None = field(
         default=None,
         metadata={
             "name": "Lightness",
@@ -51,14 +51,14 @@ class ColorHsl:
             "min_inclusive": 0.0,
         },
     )
-    name: None | str = field(
+    name: str | None = field(
         default=None,
         metadata={
             "name": "Name",
             "type": "Attribute",
         },
     )
-    color_specification: None | str = field(
+    color_specification: str | None = field(
         default=None,
         metadata={
             "name": "ColorSpecification",

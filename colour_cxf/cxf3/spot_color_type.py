@@ -24,7 +24,7 @@ class SpotColorType:
         Spot color percentage 0 (inclusive0 to 100 (inclusive).
     """
 
-    name: None | str = field(
+    name: str | None = field(
         default=None,
         metadata={
             "name": "Name",
@@ -34,7 +34,7 @@ class SpotColorType:
             "min_length": 1,
         },
     )
-    percentage: None | float = field(
+    percentage: float | None = field(
         default=None,
         metadata={
             "name": "Percentage",

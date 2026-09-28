@@ -20,20 +20,20 @@ class DeviceFilterType:
     custom filter, or describing % filter insertion if known.
     """
 
-    value: None | EfilterType = field(
+    value: EfilterType | None = field(
         default=None,
         metadata={
             "required": True,
         },
     )
-    filter_description: None | str = field(
+    filter_description: str | None = field(
         default=None,
         metadata={
             "name": "FilterDescription",
             "type": "Attribute",
         },
     )
-    filter_position: None | float = field(
+    filter_position: float | None = field(
         default=None,
         metadata={
             "name": "FilterPosition",

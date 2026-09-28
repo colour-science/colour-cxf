@@ -27,34 +27,34 @@ class Illuminant:
     class Meta:
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    value: None | EilluminantType = field(
+    value: EilluminantType | None = field(
         default=None,
         metadata={
             "required": True,
         },
     )
-    name: None | str = field(
+    name: str | None = field(
         default=None,
         metadata={
             "name": "Name",
             "type": "Attribute",
         },
     )
-    x: None | float = field(
+    x: float | None = field(
         default=None,
         metadata={
             "name": "X",
             "type": "Attribute",
         },
     )
-    y: None | float = field(
+    y: float | None = field(
         default=None,
         metadata={
             "name": "Y",
             "type": "Attribute",
         },
     )
-    z: None | float = field(
+    z: float | None = field(
         default=None,
         metadata={
             "name": "Z",

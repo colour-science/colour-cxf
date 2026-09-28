@@ -25,27 +25,27 @@ class Observer:
     class Meta:
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    value: None | EobserverType = field(
+    value: EobserverType | None = field(
         default=None,
         metadata={
             "required": True,
         },
     )
-    name: None | str = field(
+    name: str | None = field(
         default=None,
         metadata={
             "name": "Name",
             "type": "Attribute",
         },
     )
-    angle: None | int = field(
+    angle: int | None = field(
         default=None,
         metadata={
             "name": "Angle",
             "type": "Attribute",
         },
     )
-    age: None | int = field(
+    age: int | None = field(
         default=None,
         metadata={
             "name": "Age",

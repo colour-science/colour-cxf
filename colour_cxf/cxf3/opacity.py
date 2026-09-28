@@ -21,13 +21,13 @@ class Opacity:
     class Meta:
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    value: None | float = field(
+    value: float | None = field(
         default=None,
         metadata={
             "required": True,
         },
     )
-    method: None | str = field(
+    method: str | None = field(
         default=None,
         metadata={
             "name": "Method",

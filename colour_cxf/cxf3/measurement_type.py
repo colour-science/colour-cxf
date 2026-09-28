@@ -23,7 +23,7 @@ class MeasurementType:
     class Meta:
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    value: None | EspectrumType = field(
+    value: EspectrumType | None = field(
         default=None,
         metadata={
             "required": True,
