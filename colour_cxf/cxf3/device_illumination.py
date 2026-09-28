@@ -24,13 +24,13 @@ class DeviceIllumination:
     class Meta:
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    value: None | EdeviceIlluminationType = field(
+    value: EdeviceIlluminationType | None = field(
         default=None,
         metadata={
             "required": True,
         },
     )
-    custom_type: None | str = field(
+    custom_type: str | None = field(
         default=None,
         metadata={
             "name": "CustomType",
