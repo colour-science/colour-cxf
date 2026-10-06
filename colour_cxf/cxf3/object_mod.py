@@ -71,7 +71,7 @@ class Object:
     class Meta:
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    creation_date: None | CreationDate = field(
+    creation_date: CreationDate | None = field(
         default=None,
         metadata={
             "name": "CreationDate",
@@ -79,28 +79,28 @@ class Object:
             "required": True,
         },
     )
-    comment: None | str = field(
+    comment: str | None = field(
         default=None,
         metadata={
             "name": "Comment",
             "type": "Element",
         },
     )
-    color_values: None | ColorValues = field(
+    color_values: ColorValues | None = field(
         default=None,
         metadata={
             "name": "ColorValues",
             "type": "Element",
         },
     )
-    color_difference_values: None | ColorDifferenceValues = field(
+    color_difference_values: ColorDifferenceValues | None = field(
         default=None,
         metadata={
             "name": "ColorDifferenceValues",
             "type": "Element",
         },
     )
-    device_color_values: None | DeviceColorValues = field(
+    device_color_values: DeviceColorValues | None = field(
         default=None,
         metadata={
             "name": "DeviceColorValues",
@@ -114,14 +114,14 @@ class Object:
             "type": "Element",
         },
     )
-    physical_attributes: None | PhysicalAttributes = field(
+    physical_attributes: PhysicalAttributes | None = field(
         default=None,
         metadata={
             "name": "PhysicalAttributes",
             "type": "Element",
         },
     )
-    object_type: None | str = field(
+    object_type: str | None = field(
         default=None,
         metadata={
             "name": "ObjectType",
@@ -129,7 +129,7 @@ class Object:
             "required": True,
         },
     )
-    name: None | str = field(
+    name: str | None = field(
         default=None,
         metadata={
             "name": "Name",
@@ -137,7 +137,7 @@ class Object:
             "required": True,
         },
     )
-    id: None | str = field(
+    id: str | None = field(
         default=None,
         metadata={
             "name": "Id",
@@ -145,7 +145,7 @@ class Object:
             "required": True,
         },
     )
-    guid: None | str = field(
+    guid: str | None = field(
         default=None,
         metadata={
             "name": "GUID",

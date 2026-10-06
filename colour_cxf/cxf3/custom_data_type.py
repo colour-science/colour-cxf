@@ -17,13 +17,13 @@ class CustomDataType:
     Custom Data type used to represent custom color values.
     """
 
-    value: None | float = field(
+    value: float | None = field(
         default=None,
         metadata={
             "required": True,
         },
     )
-    label: None | str = field(
+    label: str | None = field(
         default=None,
         metadata={
             "name": "Label",

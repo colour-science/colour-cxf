@@ -28,7 +28,7 @@ class CustomAttributeString:
             "required": True,
         },
     )
-    label: None | str = field(
+    label: str | None = field(
         default=None,
         metadata={
             "name": "Label",
@@ -36,7 +36,7 @@ class CustomAttributeString:
             "required": True,
         },
     )
-    method: None | str = field(
+    method: str | None = field(
         default=None,
         metadata={
             "name": "Method",

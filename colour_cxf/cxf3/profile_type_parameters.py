@@ -20,7 +20,7 @@ class ProfileTypeParameters:
     class Meta:
         global_type = False
 
-    name: None | str = field(
+    name: str | None = field(
         default=None,
         metadata={
             "name": "Name",
@@ -30,7 +30,7 @@ class ProfileTypeParameters:
             "length": 1,
         },
     )
-    value_choice: None | ProfileTypeParametersValueChoice = field(
+    value_choice: ProfileTypeParametersValueChoice | None = field(
         default=None,
         metadata={
             "name": "ValueChoice",

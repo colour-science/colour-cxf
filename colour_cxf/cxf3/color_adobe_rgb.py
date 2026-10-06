@@ -39,14 +39,14 @@ class ColorAdobeRgb:
         name = "ColorAdobeRGB"
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    max_range: None | int = field(
+    max_range: int | None = field(
         default=None,
         metadata={
             "name": "MaxRange",
             "type": "Element",
         },
     )
-    r: None | int = field(
+    r: int | None = field(
         default=None,
         metadata={
             "name": "R",
@@ -54,7 +54,7 @@ class ColorAdobeRgb:
             "required": True,
         },
     )
-    g: None | int = field(
+    g: int | None = field(
         default=None,
         metadata={
             "name": "G",
@@ -62,7 +62,7 @@ class ColorAdobeRgb:
             "required": True,
         },
     )
-    b: None | int = field(
+    b: int | None = field(
         default=None,
         metadata={
             "name": "B",
@@ -70,7 +70,7 @@ class ColorAdobeRgb:
             "required": True,
         },
     )
-    alpha: None | float = field(
+    alpha: float | None = field(
         default=None,
         metadata={
             "name": "Alpha",
@@ -79,21 +79,21 @@ class ColorAdobeRgb:
             "max_inclusive": 1.0,
         },
     )
-    profile_specification: None | str = field(
+    profile_specification: str | None = field(
         default=None,
         metadata={
             "name": "ProfileSpecification",
             "type": "Attribute",
         },
     )
-    name: None | str = field(
+    name: str | None = field(
         default=None,
         metadata={
             "name": "Name",
             "type": "Attribute",
         },
     )
-    color_specification: None | str = field(
+    color_specification: str | None = field(
         default=None,
         metadata={
             "name": "ColorSpecification",
