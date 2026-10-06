@@ -42,7 +42,7 @@ class ColorCmykplusN:
         name = "ColorCMYKPlusN"
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    cyan: None | float = field(
+    cyan: float | None = field(
         default=None,
         metadata={
             "name": "Cyan",
@@ -52,7 +52,7 @@ class ColorCmykplusN:
             "max_inclusive": 100.0,
         },
     )
-    magenta: None | float = field(
+    magenta: float | None = field(
         default=None,
         metadata={
             "name": "Magenta",
@@ -62,7 +62,7 @@ class ColorCmykplusN:
             "max_inclusive": 100.0,
         },
     )
-    yellow: None | float = field(
+    yellow: float | None = field(
         default=None,
         metadata={
             "name": "Yellow",
@@ -72,7 +72,7 @@ class ColorCmykplusN:
             "max_inclusive": 100.0,
         },
     )
-    black: None | float = field(
+    black: float | None = field(
         default=None,
         metadata={
             "name": "Black",
@@ -89,21 +89,21 @@ class ColorCmykplusN:
             "type": "Element",
         },
     )
-    profile_specification: None | str = field(
+    profile_specification: str | None = field(
         default=None,
         metadata={
             "name": "ProfileSpecification",
             "type": "Attribute",
         },
     )
-    name: None | str = field(
+    name: str | None = field(
         default=None,
         metadata={
             "name": "Name",
             "type": "Attribute",
         },
     )
-    color_specification: None | str = field(
+    color_specification: str | None = field(
         default=None,
         metadata={
             "name": "ColorSpecification",

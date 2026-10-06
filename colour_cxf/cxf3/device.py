@@ -25,49 +25,49 @@ class Device:
     class Meta:
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    manufacturer: None | str = field(
+    manufacturer: str | None = field(
         default=None,
         metadata={
             "name": "Manufacturer",
             "type": "Element",
         },
     )
-    model: None | str = field(
+    model: str | None = field(
         default=None,
         metadata={
             "name": "Model",
             "type": "Element",
         },
     )
-    serial_number: None | str = field(
+    serial_number: str | None = field(
         default=None,
         metadata={
             "name": "SerialNumber",
             "type": "Element",
         },
     )
-    device_class: None | DeviceClass = field(
+    device_class: DeviceClass | None = field(
         default=None,
         metadata={
             "name": "DeviceClass",
             "type": "Element",
         },
     )
-    device_filter: None | DeviceFilter = field(
+    device_filter: DeviceFilter | None = field(
         default=None,
         metadata={
             "name": "DeviceFilter",
             "type": "Element",
         },
     )
-    device_illumination: None | DeviceIllumination = field(
+    device_illumination: DeviceIllumination | None = field(
         default=None,
         metadata={
             "name": "DeviceIllumination",
             "type": "Element",
         },
     )
-    device_polarization: None | bool = field(
+    device_polarization: bool | None = field(
         default=None,
         metadata={
             "name": "DevicePolarization",

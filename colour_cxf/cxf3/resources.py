@@ -34,21 +34,21 @@ class Resources:
     class Meta:
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    object_collection: None | ObjectCollection = field(
+    object_collection: ObjectCollection | None = field(
         default=None,
         metadata={
             "name": "ObjectCollection",
             "type": "Element",
         },
     )
-    color_specification_collection: None | ColorSpecificationCollection = field(
+    color_specification_collection: ColorSpecificationCollection | None = field(
         default=None,
         metadata={
             "name": "ColorSpecificationCollection",
             "type": "Element",
         },
     )
-    profile_collection: None | ProfileCollection = field(
+    profile_collection: ProfileCollection | None = field(
         default=None,
         metadata={
             "name": "ProfileCollection",
