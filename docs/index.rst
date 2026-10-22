@@ -6,10 +6,11 @@ Colour CxF
    :maxdepth: 2
    :caption: Contents:
 
-   tutorial
+   user-guide
+   reference
 
 Introduction
-===========
+============
 
 Colour CxF is a Python library for reading, manipulating, and writing Color Exchange Format (CxF) files. CxF is an XML-based format for exchanging color information between different applications and devices.
 
@@ -22,7 +23,7 @@ Features
 - Write CxF objects to XML strings
 
 Installation
-===========
+============
 
 You can install Colour CxF using pip:
 
@@ -31,7 +32,7 @@ You can install Colour CxF using pip:
     pip install colour-cxf
 
 Quick Start
-==========
+===========
 
 .. code-block:: python
 

@@ -4,7 +4,7 @@ API Reference
 .. toctree::
     :titlesonly:
 
-    colour_cxc
+    colour_cxf
 
 Indices and tables
 ------------------

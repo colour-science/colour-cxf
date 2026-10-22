@@ -10,5 +10,5 @@ explains important concepts and features, details can be found in the
 
     Installation <installation>
     Contributing <https://www.colour-science.org/contributing/>
-    Changes <https://github.com/colour-science/colour-cxf-io/releases>
+    Changes <https://github.com/colour-science/colour-cxf/releases>
     bibliography

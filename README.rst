@@ -72,7 +72,8 @@ Quick Start
 Documentation
 =============
 
-For more detailed information and examples, see the `tutorial <docs/tutorial.rst>`_.
+For more detailed information and examples, see the
+`documentation <https://colour-cxf.readthedocs.io/en/latest/>`__.
 
 License
 =======
