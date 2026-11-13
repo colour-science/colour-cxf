@@ -22,7 +22,7 @@ Primary Dependencies
 
 **Colour - CxF** requires some dependencies in order to run:
 
-- `python >= 3.10, < 3.14 <https://www.python.org/download/releases>`__
+- `python >= 3.13, < 3.16 <https://www.python.org/download/releases>`__
 - `typing-extensions >= 4, < 5 <https://pypi.org/project/typing-extensions>`__
 - `xsdata > 25.4 <https://pypi.org/project/xsdata>`__
 
