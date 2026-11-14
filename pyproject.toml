@@ -63,6 +63,7 @@ package = true
 
 [dependency-groups]
 dev = [
+    "biblib-simple",
     "coverage",
     "coveralls",
     "hatch",
