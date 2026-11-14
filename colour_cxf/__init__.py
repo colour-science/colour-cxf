@@ -20,6 +20,7 @@ __all__ = [
     "write_cxf",
 ]
 
+from importlib.resources import files
 from io import BytesIO
 from os import PathLike
 
@@ -91,7 +92,7 @@ def _validate_schema(doc: bytes) -> None:
         raise ParserError(msg) from e
 
     try:
-        with open("CxF3_Core.xsd") as schema_file:
+        with files("colour_cxf").joinpath("CxF3_Core.xsd").open("rb") as schema_file:
             xmlschema_doc = etree.parse(schema_file)
             xmlschema = etree.XMLSchema(xmlschema_doc)
 
