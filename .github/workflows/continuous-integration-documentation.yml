@@ -35,7 +35,7 @@ jobs:
         shell: bash
       - name: Install Package Dependencies
         run: |
-          uv sync --all-extras --no-dev
+          uv sync --all-extras
         shell: bash
       - name: Build Documentation
         run: |

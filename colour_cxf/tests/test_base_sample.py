@@ -13,6 +13,9 @@ from lxml_asserts.testcase import LxmlTestCaseMixin
 
 import colour_cxf.cxf3
 from colour_cxf import read_cxf_from_file
+from colour_cxf.cxf3.color_cielab import ColorCielab
+from colour_cxf.cxf3.color_srgb import ColorSrgb
+from colour_cxf.cxf3.reflectance_spectrum import ReflectanceSpectrum
 
 
 class SampleCxfTests(unittest.TestCase, LxmlTestCaseMixin):
@@ -100,8 +103,6 @@ class SampleCxfTests(unittest.TestCase, LxmlTestCaseMixin):
 
         for obj in objects:
             if obj.color_values:
-                from colour_cxf.cxf3.reflectance_spectrum import ReflectanceSpectrum
-
                 for color_value in obj.color_values.choice:
                     if isinstance(color_value, ReflectanceSpectrum):
                         spectral_found = True
@@ -128,9 +129,6 @@ class SampleCxfTests(unittest.TestCase, LxmlTestCaseMixin):
 
         for obj in objects:
             if obj.color_values:
-                from colour_cxf.cxf3.color_cielab import ColorCielab
-                from colour_cxf.cxf3.color_srgb import ColorSrgb
-
                 for color_value in obj.color_values.choice:
                     if isinstance(color_value, ColorCielab):
                         cielab_found = True
