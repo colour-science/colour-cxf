@@ -21,10 +21,7 @@ from shlex import quote
 from textwrap import TextWrapper
 from typing import TYPE_CHECKING
 
-try:
-    import biblib.bib
-except ImportError:
-    biblib = None
+import biblib.bib
 from invoke.tasks import task
 
 import colour_cxf
@@ -227,24 +224,21 @@ def formatting(
 
     if bibtex:
         message_box('Cleaning up "BibTeX" file...')
-        if biblib is None:
-            message_box("Warning: biblib module not available, skipping BibTeX cleanup")
-        else:
-            bibtex_path = BIBLIOGRAPHY_NAME
-            with open(bibtex_path) as bibtex_file:
-                entries = biblib.bib.Parser().parse(bibtex_file.read()).get_entries()
+        bibtex_path = BIBLIOGRAPHY_NAME
+        with open(bibtex_path) as bibtex_file:
+            entries = biblib.bib.Parser().parse(bibtex_file.read()).get_entries()
 
+        for entry in sorted(entries.values(), key=lambda x: x.key):
+            with contextlib.suppress(KeyError):
+                del entry["file"]
+
+            for key, value in entry.items():
+                entry[key] = re.sub("(?<!\\\\)\\&", "\\&", value)
+
+        with open(bibtex_path, "w") as bibtex_file:
             for entry in sorted(entries.values(), key=lambda x: x.key):
-                with contextlib.suppress(KeyError):
-                    del entry["file"]
-
-                for key, value in entry.items():
-                    entry[key] = re.sub("(?<!\\\\)\\&", "\\&", value)
-
-            with open(bibtex_path, "w") as bibtex_file:
-                for entry in sorted(entries.values(), key=lambda x: x.key):
-                    bibtex_file.write(entry.to_bib())
-                    bibtex_file.write("\n")
+                bibtex_file.write(entry.to_bib())
+                bibtex_file.write("\n")
 
 
 @task
@@ -312,7 +306,6 @@ def tests(ctx: Context) -> None:
     )
 
 
-
 @task
 def examples(ctx: Context) -> None:
     """
@@ -322,18 +315,12 @@ def examples(ctx: Context) -> None:
     ----------
     ctx
         Context.
-    plots
-        Whether to skip or only run the plotting examples: This a mutually
-        exclusive switch.
     """
 
     message_box("Running examples...")
 
-    message_box(PYTHON_PACKAGE_NAME)
-
     for root, _dirnames, filenames in os.walk("examples"):
         for filename in fnmatch.filter(filenames, "*.py"):
-            message_box(filename)
             ctx.run(f"python {os.path.join(root, filename)}")
 
 
@@ -364,13 +351,12 @@ def docs(
     ----------
     ctx
         Context.
-    plots
-        Whether to generate the documentation plots.
     html
         Whether to build the *HTML* documentation.
     pdf
         Whether to build the *PDF* documentation.
     """
+
     with ctx.prefix("export COLOUR_SCIENCE__DOCUMENTATION_BUILD=True"), ctx.cd("docs"):
         if html:
             message_box('Building "HTML" documentation...')
@@ -434,7 +420,27 @@ def build(ctx: Context) -> None:
     """
 
     message_box("Building...")
-    ctx.run("uv build")
+    status = ctx.run("git status --porcelain -- README.rst", hide="both")
+    if status is not None and status.stdout.strip():
+        error = 'Please commit your changes to the "README.rst" file!'
+
+        raise RuntimeError(error)
+
+    readme_path = Path("README.rst")
+    original_readme = readme_path.read_bytes()
+    readme_content = original_readme.decode("utf-8")
+    readme_content = re.sub(
+        r"(\.\. begin-trim-long-description.*?\.\. end-trim-long-description)",
+        "",
+        readme_content,
+        flags=re.DOTALL,
+    )
+    try:
+        readme_path.write_text(readme_content, encoding="utf-8", newline="")
+        ctx.run("uv build")
+    finally:
+        readme_path.write_bytes(original_readme)
+
     ctx.run("twine check dist/*.whl dist/*.tar.gz")
 
 
@@ -517,9 +523,8 @@ def tag(ctx: Context, remote_name: str = "upstream") -> None:
     ----------
     ctx
         Context.
-
     remote_name
-        Name of the remote repository in the local git repository.
+        Name of the remote repository.
     """
 
     message_box("Tagging...")
@@ -550,23 +555,25 @@ def tag(ctx: Context, remote_name: str = "upstream") -> None:
 
         version = f"{major_version}.{minor_version}.{change_version}"
 
-        result = ctx.run(f"git ls-remote --tags {remote_name}", hide="both")
+        result = ctx.run(
+            f"git ls-remote --tags --refs {quote(remote_name)}", hide="both"
+        )
         if result is None:
             error = "Failed to list remote tags."
 
             raise RuntimeError(error)
 
-        remote_tags = result.stdout.strip().split("\n")
-        tags = set()
-        for remote_tag in remote_tags:
-            if remote_tag:
-                tags.add(remote_tag.split("refs/tags/")[1].replace("refs/tags/", "^{}"))
-        version_tags = sorted(tags)
-        if f"v{version}" in version_tags:
+        tags = {
+            ref.removeprefix("refs/tags/").removesuffix("^{}")
+            for line in result.stdout.splitlines()
+            if (ref := line.partition("\t")[2]).startswith("refs/tags/")
+        }
+        if f"v{version}" in tags:
             error = (
                 f'A "{PYTHON_PACKAGE_NAME}" "v{version}" tag already exists in '
                 f"remote repository!"
             )
+
             raise RuntimeError(error)
 
         ctx.run(f"git flow release start v{version}")
