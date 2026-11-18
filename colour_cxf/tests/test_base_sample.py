@@ -8,6 +8,7 @@ beyond generic parsing functionality.
 """
 
 import unittest
+from pathlib import Path
 
 from lxml_asserts.testcase import LxmlTestCaseMixin
 
@@ -26,7 +27,7 @@ class SampleCxfTests(unittest.TestCase, LxmlTestCaseMixin):
 
     def setUp(self) -> None:
         """Set up test fixtures."""
-        self.sample_file_path = "colour_cxf/tests/resources/sample.cxf"
+        self.sample_file_path = Path(__file__).parent / "resources" / "sample.cxf"
 
     def test_sample_file_structure(self) -> None:
         """Test that the sample.cxf file has expected structure and content."""
