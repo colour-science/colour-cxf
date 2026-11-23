@@ -30,7 +30,7 @@ class CustomColorSpace:
             "min_occurs": 1,
         },
     )
-    name: None | str = field(
+    name: str | None = field(
         default=None,
         metadata={
             "name": "Name",
@@ -38,7 +38,7 @@ class CustomColorSpace:
             "required": True,
         },
     )
-    color_specification: None | str = field(
+    color_specification: str | None = field(
         default=None,
         metadata={
             "name": "ColorSpecification",

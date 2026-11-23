@@ -27,7 +27,7 @@ class TristimulusSpec:
     class Meta:
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    illuminant_or_custom_illuminant: None | Illuminant | CustomIlluminant = field(
+    illuminant_or_custom_illuminant: Illuminant | CustomIlluminant | None = field(
         default=None,
         metadata={
             "type": "Elements",
@@ -43,7 +43,7 @@ class TristimulusSpec:
             ),
         },
     )
-    observer: None | Observer = field(
+    observer: Observer | None = field(
         default=None,
         metadata={
             "name": "Observer",
@@ -51,7 +51,7 @@ class TristimulusSpec:
             "required": True,
         },
     )
-    method: None | Method = field(
+    method: Method | None = field(
         default=None,
         metadata={
             "name": "Method",

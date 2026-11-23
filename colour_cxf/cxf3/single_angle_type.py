@@ -19,7 +19,7 @@ class SingleAngleType:
     Geometry type where measurement is based on a single angle (example 45/0).
     """
 
-    single_angle_configuration: None | SingleAngleConfiguration = field(
+    single_angle_configuration: SingleAngleConfiguration | None = field(
         default=None,
         metadata={
             "name": "SingleAngleConfiguration",
@@ -28,7 +28,7 @@ class SingleAngleType:
             "required": True,
         },
     )
-    illumination_angle: None | float = field(
+    illumination_angle: float | None = field(
         default=None,
         metadata={
             "name": "IlluminationAngle",
@@ -37,7 +37,7 @@ class SingleAngleType:
             "required": True,
         },
     )
-    measurement_angle: None | float = field(
+    measurement_angle: float | None = field(
         default=None,
         metadata={
             "name": "MeasurementAngle",

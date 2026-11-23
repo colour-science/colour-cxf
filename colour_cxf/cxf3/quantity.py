@@ -20,13 +20,13 @@ class Quantity:
     class Meta:
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    value: None | float = field(
+    value: float | None = field(
         default=None,
         metadata={
             "required": True,
         },
     )
-    units: None | str = field(
+    units: str | None = field(
         default=None,
         metadata={
             "name": "Units",

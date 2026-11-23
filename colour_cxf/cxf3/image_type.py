@@ -17,21 +17,21 @@ class ImageType:
     Image file stored as a base64 encoded binary object.
     """
 
-    value: None | bytes = field(
+    value: bytes | None = field(
         default=None,
         metadata={
             "required": True,
             "format": "base64",
         },
     )
-    label: None | str = field(
+    label: str | None = field(
         default=None,
         metadata={
             "name": "Label",
             "type": "Attribute",
         },
     )
-    image_file_name: None | str = field(
+    image_file_name: str | None = field(
         default=None,
         metadata={
             "name": "ImageFileName",

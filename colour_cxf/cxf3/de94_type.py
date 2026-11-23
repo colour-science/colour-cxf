@@ -21,13 +21,13 @@ class De94Type:
     class Meta:
         name = "DE94Type"
 
-    value: None | float = field(
+    value: float | None = field(
         default=None,
         metadata={
             "required": True,
         },
     )
-    lratio: None | float = field(
+    lratio: float | None = field(
         default=None,
         metadata={
             "name": "LRatio",

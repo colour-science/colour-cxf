@@ -48,7 +48,7 @@ class MeasurementSpec:
     class Meta:
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    measurement_type: None | MeasurementType = field(
+    measurement_type: MeasurementType | None = field(
         default=None,
         metadata={
             "name": "MeasurementType",
@@ -56,7 +56,7 @@ class MeasurementSpec:
             "required": True,
         },
     )
-    geometry_choice: None | GeometryChoice = field(
+    geometry_choice: GeometryChoice | None = field(
         default=None,
         metadata={
             "name": "GeometryChoice",
@@ -64,49 +64,49 @@ class MeasurementSpec:
             "required": True,
         },
     )
-    wavelength_range: None | WavelengthRange = field(
+    wavelength_range: WavelengthRange | None = field(
         default=None,
         metadata={
             "name": "WavelengthRange",
             "type": "Element",
         },
     )
-    luminance_units_type: None | LuminanceUnitsType = field(
+    luminance_units_type: LuminanceUnitsType | None = field(
         default=None,
         metadata={
             "name": "LuminanceUnitsType",
             "type": "Element",
         },
     )
-    calibration_standard: None | str = field(
+    calibration_standard: str | None = field(
         default=None,
         metadata={
             "name": "CalibrationStandard",
             "type": "Element",
         },
     )
-    aperture: None | str = field(
+    aperture: str | None = field(
         default=None,
         metadata={
             "name": "Aperture",
             "type": "Element",
         },
     )
-    backing: None | str = field(
+    backing: str | None = field(
         default=None,
         metadata={
             "name": "Backing",
             "type": "Element",
         },
     )
-    bandpass_corrected: None | bool = field(
+    bandpass_corrected: bool | None = field(
         default=None,
         metadata={
             "name": "BandpassCorrected",
             "type": "Element",
         },
     )
-    device: None | Device = field(
+    device: Device | None = field(
         default=None,
         metadata={
             "name": "Device",

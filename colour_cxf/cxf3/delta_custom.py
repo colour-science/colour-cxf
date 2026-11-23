@@ -29,14 +29,14 @@ class DeltaCustom:
             "type": "Element",
         },
     )
-    name: None | str = field(
+    name: str | None = field(
         default=None,
         metadata={
             "name": "Name",
             "type": "Attribute",
         },
     )
-    color_specification: None | str = field(
+    color_specification: str | None = field(
         default=None,
         metadata={
             "name": "ColorSpecification",
@@ -44,7 +44,7 @@ class DeltaCustom:
             "required": True,
         },
     )
-    standard_ref: None | str = field(
+    standard_ref: str | None = field(
         default=None,
         metadata={
             "name": "StandardRef",

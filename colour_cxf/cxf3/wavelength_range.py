@@ -21,7 +21,7 @@ class WavelengthRange:
     class Meta:
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    start_wl: None | int = field(
+    start_wl: int | None = field(
         default=None,
         metadata={
             "name": "StartWL",
@@ -31,7 +31,7 @@ class WavelengthRange:
             "max_inclusive": 400,
         },
     )
-    increment: None | int = field(
+    increment: int | None = field(
         default=None,
         metadata={
             "name": "Increment",
