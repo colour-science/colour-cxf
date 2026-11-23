@@ -22,7 +22,7 @@ class ColorCielch:
         name = "ColorCIELCh"
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    l: None | float = field(
+    l: float | None = field(
         default=None,
         metadata={
             "name": "L",
@@ -31,7 +31,7 @@ class ColorCielch:
             "min_inclusive": 0.0,
         },
     )
-    c: None | float = field(
+    c: float | None = field(
         default=None,
         metadata={
             "name": "C",
@@ -40,7 +40,7 @@ class ColorCielch:
             "min_inclusive": 0.0,
         },
     )
-    h: None | float = field(
+    h: float | None = field(
         default=None,
         metadata={
             "name": "H",
@@ -50,14 +50,14 @@ class ColorCielch:
             "max_inclusive": 360.0,
         },
     )
-    name: None | str = field(
+    name: str | None = field(
         default=None,
         metadata={
             "name": "Name",
             "type": "Attribute",
         },
     )
-    color_specification: None | str = field(
+    color_specification: str | None = field(
         default=None,
         metadata={
             "name": "ColorSpecification",

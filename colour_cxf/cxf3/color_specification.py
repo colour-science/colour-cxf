@@ -34,14 +34,14 @@ class ColorSpecification:
     class Meta:
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    tristimulus_spec: None | TristimulusSpec = field(
+    tristimulus_spec: TristimulusSpec | None = field(
         default=None,
         metadata={
             "name": "TristimulusSpec",
             "type": "Element",
         },
     )
-    measurement_spec: None | MeasurementSpec = field(
+    measurement_spec: MeasurementSpec | None = field(
         default=None,
         metadata={
             "name": "MeasurementSpec",
@@ -49,14 +49,14 @@ class ColorSpecification:
             "required": True,
         },
     )
-    physical_attributes: None | PhysicalAttributes = field(
+    physical_attributes: PhysicalAttributes | None = field(
         default=None,
         metadata={
             "name": "PhysicalAttributes",
             "type": "Element",
         },
     )
-    id: None | str = field(
+    id: str | None = field(
         default=None,
         metadata={
             "name": "Id",

@@ -36,14 +36,14 @@ class ColorRgb:
         name = "ColorRGB"
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    max_range: None | int = field(
+    max_range: int | None = field(
         default=None,
         metadata={
             "name": "MaxRange",
             "type": "Element",
         },
     )
-    r: None | int = field(
+    r: int | None = field(
         default=None,
         metadata={
             "name": "R",
@@ -51,7 +51,7 @@ class ColorRgb:
             "required": True,
         },
     )
-    g: None | int = field(
+    g: int | None = field(
         default=None,
         metadata={
             "name": "G",
@@ -59,7 +59,7 @@ class ColorRgb:
             "required": True,
         },
     )
-    b: None | int = field(
+    b: int | None = field(
         default=None,
         metadata={
             "name": "B",
@@ -67,14 +67,14 @@ class ColorRgb:
             "required": True,
         },
     )
-    name: None | str = field(
+    name: str | None = field(
         default=None,
         metadata={
             "name": "Name",
             "type": "Attribute",
         },
     )
-    color_specification: None | str = field(
+    color_specification: str | None = field(
         default=None,
         metadata={
             "name": "ColorSpecification",
@@ -82,7 +82,7 @@ class ColorRgb:
             "required": True,
         },
     )
-    profile_specification: None | str = field(
+    profile_specification: str | None = field(
         default=None,
         metadata={
             "name": "ProfileSpecification",

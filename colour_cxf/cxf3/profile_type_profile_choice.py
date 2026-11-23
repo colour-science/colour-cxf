@@ -20,7 +20,7 @@ class ProfileTypeProfileChoice:
     class Meta:
         global_type = False
 
-    profile_file_or_profile_uri: None | ProfileTypeProfileChoiceProfileFile | str = (
+    profile_file_or_profile_uri: ProfileTypeProfileChoiceProfileFile | str | None = (
         field(
             default=None,
             metadata={

@@ -22,7 +22,7 @@ class ColorCielab:
         name = "ColorCIELab"
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    l: None | float = field(
+    l: float | None = field(
         default=None,
         metadata={
             "name": "L",
@@ -31,7 +31,7 @@ class ColorCielab:
             "min_inclusive": 0.0,
         },
     )
-    a: None | float = field(
+    a: float | None = field(
         default=None,
         metadata={
             "name": "A",
@@ -39,7 +39,7 @@ class ColorCielab:
             "required": True,
         },
     )
-    b: None | float = field(
+    b: float | None = field(
         default=None,
         metadata={
             "name": "B",
@@ -47,14 +47,14 @@ class ColorCielab:
             "required": True,
         },
     )
-    name: None | str = field(
+    name: str | None = field(
         default=None,
         metadata={
             "name": "Name",
             "type": "Attribute",
         },
     )
-    color_specification: None | str = field(
+    color_specification: str | None = field(
         default=None,
         metadata={
             "name": "ColorSpecification",

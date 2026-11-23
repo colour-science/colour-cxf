@@ -40,14 +40,14 @@ class ColorCustom:
             "min_occurs": 1,
         },
     )
-    profile_specification: None | str = field(
+    profile_specification: str | None = field(
         default=None,
         metadata={
             "name": "ProfileSpecification",
             "type": "Attribute",
         },
     )
-    name: None | str = field(
+    name: str | None = field(
         default=None,
         metadata={
             "name": "Name",
@@ -55,7 +55,7 @@ class ColorCustom:
             "required": True,
         },
     )
-    color_specification: None | str = field(
+    color_specification: str | None = field(
         default=None,
         metadata={
             "name": "ColorSpecification",

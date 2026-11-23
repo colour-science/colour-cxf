@@ -21,13 +21,13 @@ class SpectralPoint:
     class Meta:
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    value: None | float = field(
+    value: float | None = field(
         default=None,
         metadata={
             "required": True,
         },
     )
-    wl: None | float = field(
+    wl: float | None = field(
         default=None,
         metadata={
             "name": "WL",

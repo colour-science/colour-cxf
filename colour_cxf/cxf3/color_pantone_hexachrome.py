@@ -38,7 +38,7 @@ class ColorPantoneHexachrome:
     class Meta:
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    cyan: None | float = field(
+    cyan: float | None = field(
         default=None,
         metadata={
             "name": "Cyan",
@@ -48,7 +48,7 @@ class ColorPantoneHexachrome:
             "max_inclusive": 100.0,
         },
     )
-    magenta: None | float = field(
+    magenta: float | None = field(
         default=None,
         metadata={
             "name": "Magenta",
@@ -58,7 +58,7 @@ class ColorPantoneHexachrome:
             "max_inclusive": 100.0,
         },
     )
-    yellow: None | float = field(
+    yellow: float | None = field(
         default=None,
         metadata={
             "name": "Yellow",
@@ -68,7 +68,7 @@ class ColorPantoneHexachrome:
             "max_inclusive": 100.0,
         },
     )
-    black: None | float = field(
+    black: float | None = field(
         default=None,
         metadata={
             "name": "Black",
@@ -78,7 +78,7 @@ class ColorPantoneHexachrome:
             "max_inclusive": 100.0,
         },
     )
-    orange: None | float = field(
+    orange: float | None = field(
         default=None,
         metadata={
             "name": "Orange",
@@ -88,7 +88,7 @@ class ColorPantoneHexachrome:
             "max_inclusive": 100.0,
         },
     )
-    green: None | float = field(
+    green: float | None = field(
         default=None,
         metadata={
             "name": "Green",
@@ -98,21 +98,21 @@ class ColorPantoneHexachrome:
             "max_inclusive": 100.0,
         },
     )
-    profile_specification: None | str = field(
+    profile_specification: str | None = field(
         default=None,
         metadata={
             "name": "ProfileSpecification",
             "type": "Attribute",
         },
     )
-    name: None | str = field(
+    name: str | None = field(
         default=None,
         metadata={
             "name": "Name",
             "type": "Attribute",
         },
     )
-    color_specification: None | str = field(
+    color_specification: str | None = field(
         default=None,
         metadata={
             "name": "ColorSpecification",

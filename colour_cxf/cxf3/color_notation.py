@@ -20,7 +20,7 @@ class ColorNotation:
     class Meta:
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    notation: None | str = field(
+    notation: str | None = field(
         default=None,
         metadata={
             "name": "Notation",
@@ -28,7 +28,7 @@ class ColorNotation:
             "required": True,
         },
     )
-    name: None | str = field(
+    name: str | None = field(
         default=None,
         metadata={
             "name": "Name",
@@ -36,7 +36,7 @@ class ColorNotation:
             "required": True,
         },
     )
-    color_specification: None | str = field(
+    color_specification: str | None = field(
         default=None,
         metadata={
             "name": "ColorSpecification",

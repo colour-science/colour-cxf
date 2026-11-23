@@ -21,7 +21,7 @@ class ColorEmissiveCiexyY:
         name = "ColorEmissiveCIExyY"
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    x: None | float = field(
+    x: float | None = field(
         default=None,
         metadata={
             "type": "Element",
@@ -30,7 +30,7 @@ class ColorEmissiveCiexyY:
             "max_inclusive": 1.0,
         },
     )
-    y: None | float = field(
+    y: float | None = field(
         default=None,
         metadata={
             "type": "Element",
@@ -39,7 +39,7 @@ class ColorEmissiveCiexyY:
             "max_inclusive": 1.0,
         },
     )
-    colorexchangeformat_com_cx_f3_core_y: None | float = field(
+    colorexchangeformat_com_cx_f3_core_y: float | None = field(
         default=None,
         metadata={
             "name": "Y",
@@ -48,14 +48,14 @@ class ColorEmissiveCiexyY:
             "min_inclusive": 0.0,
         },
     )
-    name: None | str = field(
+    name: str | None = field(
         default=None,
         metadata={
             "name": "Name",
             "type": "Attribute",
         },
     )
-    color_specification: None | str = field(
+    color_specification: str | None = field(
         default=None,
         metadata={
             "name": "ColorSpecification",

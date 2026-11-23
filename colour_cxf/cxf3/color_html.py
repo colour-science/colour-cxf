@@ -22,14 +22,14 @@ class ColorHtml:
         name = "ColorHTML"
         namespace = "http://colorexchangeformat.com/CxF3-core"
 
-    name: None | str = field(
+    name: str | None = field(
         default=None,
         metadata={
             "name": "Name",
             "type": "Attribute",
         },
     )
-    html: None | str = field(
+    html: str | None = field(
         default=None,
         metadata={
             "name": "HTML",
@@ -37,7 +37,7 @@ class ColorHtml:
             "required": True,
         },
     )
-    color_specification: None | str = field(
+    color_specification: str | None = field(
         default=None,
         metadata={
             "name": "ColorSpecification",
